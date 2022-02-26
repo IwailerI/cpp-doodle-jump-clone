@@ -1,0 +1,17 @@
+# ninja log v5
+5	148	6672388072375235	CMakeFiles/project.dir/allegro/Allegro.cpp.obj	a364deaad267bb17
+359	476	6672389446500693	project.exe	f96dfab13bbe93cf
+2	359	6672389445346192	CMakeFiles/project.dir/main.cpp.obj	4b634bc2f0d56bb6
+4	311	6664651209798234	CMakeFiles/project.dir/AllegroUtil.cpp.obj	32a6965953832a33
+6	86	6663587118718075	CMakeFiles/project.dir/Figure.cpp.obj	6e745864dfa4a0d9
+0	5	0	clean	80727070b5b16674
+1	77	6672432947148112	build.ninja	cb68392e42797346
+6	1545	6672388086342586	CMakeFiles/project.dir/allegro/AllegroBase.cpp.obj	dbfa69a00d4d34e5
+0	74	6672432947148112	build.ninja	cb68392e42797346
+5	282	6672432950067495	CMakeFiles/project.dir/shapes/Shape.cpp.obj	fe05736f1244c460
+3	320	6672432950415281	CMakeFiles/project.dir/main.cpp.obj	4b634bc2f0d56bb6
+7	320	6672432950450314	CMakeFiles/project.dir/ScreenSaver.cpp.obj	cdb8554dae876895
+4	321	6672432950450314	CMakeFiles/project.dir/shapes/Square.cpp.obj	dbcb516349a7ca8a
+6	321	6672432950450314	CMakeFiles/project.dir/util/Vector2.cpp.obj	d6fc65e74cd88428
+8	321	6672432950450314	CMakeFiles/project.dir/shapes/Circle.cpp.obj	99537fea9bd6ec40
+321	409	6672432951320868	project.exe	d14f8d3ffa524972
