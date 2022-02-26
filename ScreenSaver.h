@@ -10,13 +10,23 @@
 const int MAX_BODIES = 100;
 
 typedef Shape* PShape;
+
+// Singleton
 class ScreenSaver {
+private:
+    ScreenSaver();
+
 protected:
-    PShape _bodies[MAX_BODIES];
+    PShape _bodies[MAX_BODIES]{};
     int _size;
 
 public:
-    ScreenSaver();
+    // returns current singleton instance or creates a new one
+    static ScreenSaver &Instance() {
+        static ScreenSaver instance;
+        return instance;
+    }
+
     virtual ~ScreenSaver();
 
     void Draw();

@@ -6,7 +6,7 @@
 #include "shapes/Circle.h"
 
 int size = 10;
-ScreenSaver ss;
+ScreenSaver ss = ScreenSaver::Instance();
 
 void setup() {
     PShape shape;
