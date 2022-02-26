@@ -97,6 +97,12 @@ build CMakeFiles/project.dir/ScreenSaver.cpp.obj: CXX_COMPILER__project_Debug D$
   OBJECT_DIR = CMakeFiles\project.dir
   OBJECT_FILE_DIR = CMakeFiles\project.dir
 
+build CMakeFiles/project.dir/shapes/ShapeFactory.cpp.obj: CXX_COMPILER__project_Debug D$:/All/Coding/C++/project/shapes/ShapeFactory.cpp || cmake_object_order_depends_target_project
+  DEP_FILE = CMakeFiles\project.dir\shapes\ShapeFactory.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\project.dir
+  OBJECT_FILE_DIR = CMakeFiles\project.dir\shapes
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target project
@@ -105,7 +111,7 @@ build CMakeFiles/project.dir/ScreenSaver.cpp.obj: CXX_COMPILER__project_Debug D$
 #############################################
 # Link the executable project.exe
 
-build project.exe: CXX_EXECUTABLE_LINKER__project_Debug CMakeFiles/project.dir/main.cpp.obj CMakeFiles/project.dir/allegro/AllegroBase.cpp.obj CMakeFiles/project.dir/allegro/Allegro.cpp.obj CMakeFiles/project.dir/util/Vector2.cpp.obj CMakeFiles/project.dir/shapes/Shape.cpp.obj CMakeFiles/project.dir/shapes/Square.cpp.obj CMakeFiles/project.dir/shapes/Circle.cpp.obj CMakeFiles/project.dir/ScreenSaver.cpp.obj
+build project.exe: CXX_EXECUTABLE_LINKER__project_Debug CMakeFiles/project.dir/main.cpp.obj CMakeFiles/project.dir/allegro/AllegroBase.cpp.obj CMakeFiles/project.dir/allegro/Allegro.cpp.obj CMakeFiles/project.dir/util/Vector2.cpp.obj CMakeFiles/project.dir/shapes/Shape.cpp.obj CMakeFiles/project.dir/shapes/Square.cpp.obj CMakeFiles/project.dir/shapes/Circle.cpp.obj CMakeFiles/project.dir/ScreenSaver.cpp.obj CMakeFiles/project.dir/shapes/ShapeFactory.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lallegro  -lallegro_primitives  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\project.dir

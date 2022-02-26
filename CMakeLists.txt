@@ -14,7 +14,7 @@ add_executable(project
         shapes/Square.cpp shapes/Square.h
         shapes/Circle.cpp shapes/Circle.h
         ScreenSaver.cpp ScreenSaver.h
-        )
+        shapes/ShapeFactory.cpp shapes/ShapeFactory.h)
 
 target_link_libraries(project
         allegro
