@@ -8,7 +8,7 @@
 #include "objects/GameObject.h"
 #include "allegro/Allegro.h"
 
-const int MAX_OBJECTS = 100;
+const int MAX_OBJECTS = 200;
 
 // Singleton
 class ScreenSaver {
@@ -33,7 +33,7 @@ public:
     void Draw();
     void Update();
 
-    void Add(GameObject *s);
+    int Add(GameObject *s);
 
 //    Removes element at index i and clears it space
     void Remove(int i);

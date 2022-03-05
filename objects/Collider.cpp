@@ -20,12 +20,15 @@ Collider::Collider():
     Transform(), _dimensions(Vector2(0, 0)), _oneway(false)
     {}
 
-bool Collider::isColliding(Collider &col) {
-    Vector2 p1 = col._position + col._dimensions;
+bool Collider::isColliding(Collider *col) {
+    Vector2 p1 = col->_position + col->_dimensions;
     Vector2 p2 = _position + _dimensions;
 
     // return pos is within other col or pos+dimensions is within other col
+    bool overlapping = ((_position.x <= p2.x && _position.x >= col->_position.x) || (p1.x <= p2.x && p1.x >= col->_position.x))
+                       && ((_position.y <= p2.y && _position.y >= col->_position.y) || (p1.y <= p2.y && p1.y >= col->_position.y));
+    if (!col->_oneway)
+        return overlapping;
 
-    return ((_position.x <= p2.x && _position.x >= col._position.x) || (p1.x <= p2.x && p1.x >= col._position.x))
-        && ((_position.y <= p2.y && _position.y >= col._position.y) || (p1.y <= p2.y && p1.y >= col._position.y));
+    return _getVelocity().y >= 0 && overlapping;
 }

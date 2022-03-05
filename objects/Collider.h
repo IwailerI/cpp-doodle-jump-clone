@@ -12,6 +12,9 @@ protected:
     Vector2 _dimensions;
     bool _oneway = false;
 
+    // meant to be overridden, if oneway == true
+    virtual Vector2 _getVelocity() {return Vector2();};
+
 public:
     Collider(Vector2 position, Vector2 dimensions, bool oneway = false);
     Collider();
@@ -20,7 +23,9 @@ public:
     const Vector2 &getDimensions() const;
     void setDimensions(const Vector2 &dimensions);
 
-    bool isColliding(Collider &col);
+    bool isColliding(Collider *col);
+
+    virtual void onCollision(Collider *col) = 0;
 };
 
 

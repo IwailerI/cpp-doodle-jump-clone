@@ -28,9 +28,10 @@ void ScreenSaver::Update() {
     }
 }
 
-void ScreenSaver::Add(GameObject *s) {
-    if (_size >= MAX_OBJECTS) return;
+int ScreenSaver::Add(GameObject *s) {
+    if (_size >= MAX_OBJECTS) return -1;
     _objects[_size++] = s;
+    return _size-1;
 }
 
 void ScreenSaver::Remove(int i) {

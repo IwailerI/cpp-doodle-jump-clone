@@ -15,7 +15,10 @@ add_executable(project
         objects/Transform.cpp objects/Transform.h
         objects/simpleShapes/ColorRect.cpp objects/simpleShapes/ColorRect.h
         objects/Sprite.cpp objects/Sprite.h
-        objects/Collider.cpp objects/Collider.h)
+        objects/Collider.cpp objects/Collider.h
+        Player.cpp Player.h
+        PhysicsServer.cpp PhysicsServer.h
+        )
 
 target_link_libraries(project
         allegro
