@@ -5,11 +5,10 @@
 #ifndef PROJECT_SCREENSAVER_H
 #define PROJECT_SCREENSAVER_H
 
-#include "shapes/Shape.h"
+#include "objects/GameObject.h"
+#include "allegro/Allegro.h"
 
-const int MAX_BODIES = 100;
-
-typedef Shape* PShape;
+const int MAX_OBJECTS = 100;
 
 // Singleton
 class ScreenSaver {
@@ -17,8 +16,10 @@ private:
     ScreenSaver();
 
 protected:
-    PShape _bodies[MAX_BODIES]{};
+    GameObject *_objects[MAX_OBJECTS]{};
     int _size;
+
+    const ALLEGRO_COLOR _background_color = al_map_rgb(0, 0, 0);
 
 public:
     // returns current singleton instance or creates a new one
@@ -32,7 +33,7 @@ public:
     void Draw();
     void Update();
 
-    void Add(PShape s);
+    void Add(GameObject *s);
 
 //    Removes element at index i and clears it space
     void Remove(int i);

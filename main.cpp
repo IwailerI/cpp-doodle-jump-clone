@@ -1,23 +1,13 @@
-#include "allegro/Allegro.h"
 #include "ScreenSaver.h"
-#include "shapes/ShapeFactory.h"
+#include "objects/simpleShapes/ColorRect.h"
 
-#include "shapes/Shape.h"
 
 int size = 10;
 ScreenSaver ss = ScreenSaver::Instance();
 
 void setup() {
-    PShape shape;
-    for (int i = 0; i < size/2; i++) {
-        shape = ShapeFactory::RandomSquare();
-        ss.Add(shape);
-    }
-
-    for (int i = size/2; i < size; i++) {
-        shape = ShapeFactory::RandomCircle();
-        ss.Add(shape);
-    }
+    ColorRect *c = new ColorRect(Vector2(200, 200), al_map_rgb(255,255,255), Vector2(50, 100));
+    ss.Add(c);
 }
 
 void update(){

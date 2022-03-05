@@ -10,11 +10,12 @@ add_executable(project
         allegro/AllegroBase.hpp allegro/AllegroBase.cpp
         allegro/Allegro.cpp allegro/Allegro.h
         util/Vector2.cpp util/Vector2.h
-        shapes/Shape.cpp shapes/Shape.h
-        shapes/Square.cpp shapes/Square.h
-        shapes/Circle.cpp shapes/Circle.h
         ScreenSaver.cpp ScreenSaver.h
-        shapes/ShapeFactory.cpp shapes/ShapeFactory.h)
+        objects/GameObject.cpp objects/GameObject.h
+        objects/Transform.cpp objects/Transform.h
+        objects/simpleShapes/ColorRect.cpp objects/simpleShapes/ColorRect.h
+        objects/Sprite.cpp objects/Sprite.h
+        objects/Collider.cpp objects/Collider.h)
 
 target_link_libraries(project
         allegro
