@@ -4,11 +4,12 @@
 
 #include "PhysicsServer.h"
 
-void PhysicsServer::RegisterPlayer(Player *player) {
+void PhysicsServer::RegisterPlayer(Collider *player) {
     _player = player;
 }
 
 void PhysicsServer::Update() {
+    if (_player == nullptr) return;
     for (int i = 0; i < _size; ++i) {
         if (_player->isColliding(_bodies[i])) {
             _player->onCollision(_bodies[i]);
@@ -18,8 +19,11 @@ void PhysicsServer::Update() {
 }
 
 int PhysicsServer::Add(Collider *s) {
+    printf("Added a collider!\n");
     if (_size >= MAX_BODIES) return -1;
-    _bodies[_size++] = s;
+    _bodies[_size] = s;
+    _bodies[_size]->setPhysicsId(_size);
+    _size++;
     return _size-1;
 }
 

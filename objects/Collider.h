@@ -5,25 +5,29 @@
 #ifndef PROJECT_COLLIDER_H
 #define PROJECT_COLLIDER_H
 
-#include "Transform.h"
+#include "../util/Vector2.h"
 
-class Collider: public Transform {
+enum PlayerInteraction {Bounce, Kill};
+
+class Collider {
 protected:
-    Vector2 _dimensions;
+    int _physics_id = -1;
+    int _player_interaction = -1;
     bool _oneway = false;
-
-    // meant to be overridden, if oneway == true
-    virtual Vector2 _getVelocity() {return Vector2();};
-
 public:
-    Collider(Vector2 position, Vector2 dimensions, bool oneway = false);
-    Collider();
-    ~Collider() override = default;
+    virtual ~Collider() = default;
 
-    const Vector2 &getDimensions() const;
-    void setDimensions(const Vector2 &dimensions);
+    virtual const Vector2 &getPosition() const = 0;
+    virtual const Vector2 &getDimensions() const = 0;
 
-    bool isColliding(Collider *col);
+    virtual Vector2 getColliderVelocity() const;
+
+    int getPhysicsId() const;
+    void setPhysicsId(int physicsId);
+
+    int getPlayerInteraction() const;
+
+    bool isColliding(Collider *col) const;
 
     virtual void onCollision(Collider *col) = 0;
 };

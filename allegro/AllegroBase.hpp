@@ -18,7 +18,8 @@ public:
 
     bool Init( int screenWidth, int screenHeight, int fps );
     void Destroy();
-    void Run();
+
+    virtual void Run();
     void Exit();
 
     // See help for ALLEGRO_KEYBOARD_STATE

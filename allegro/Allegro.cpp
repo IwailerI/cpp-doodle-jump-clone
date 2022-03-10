@@ -4,16 +4,19 @@
 
 #include "Allegro.h"
 
+Allegro::Allegro(): _screen_saver(ScreenSaver::Instance()), _physics_server(PhysicsServer::Instance()) {
+    Init(SCREEN_W, SCREEN_H, FPS);
+}
+
 void Allegro::Fps() {
-    update();
+    _physics_server.Update();
+    _screen_saver.Update();
 }
 
 void Allegro::Draw() {
-    draw();
+    _screen_saver.Draw();
 }
 
-Allegro::Allegro(void (*draw)(), void (*update)()) : draw(draw), update(update) {}
-
-Allegro::~Allegro() {
-
+void Allegro::Run() {
+    AllegroBase::Run();
 }

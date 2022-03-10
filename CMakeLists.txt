@@ -18,6 +18,7 @@ add_executable(project
         objects/Collider.cpp objects/Collider.h
         Player.cpp Player.h
         PhysicsServer.cpp PhysicsServer.h
+        objects/platforms/Platform.cpp objects/platforms/Platform.h
         )
 
 target_link_libraries(project

@@ -22,7 +22,7 @@ public:
     // Sprite(const Vector2 &position, double rotation, const Vector2 &scale, const ALLEGRO_BITMAP &sprite);
     // Sprite(const ALLEGRO_BITMAP &sprite);
 
-    Sprite(const ALLEGRO_COLOR &color, const Vector2 &dimensions); // TODO remove
+    Sprite(const ALLEGRO_COLOR &color, const Vector2 &dimensions); // TODO remove and make normal constructor
 
     Sprite() = default;
     ~Sprite() override = default;

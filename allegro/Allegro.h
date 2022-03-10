@@ -6,23 +6,26 @@
 #define PROJECT_ALLEGRO_H
 
 #include "AllegroBase.hpp"
+#include "../PhysicsServer.h"
+#include "../ScreenSaver.h"
 
-typedef void ( *FpsCallback )();
-typedef void ( *DrawCallback )();
+class Allegro: public AllegroBase {
+private:
+    Allegro();
+    PhysicsServer &_physics_server;
+    ScreenSaver &_screen_saver;
 
-class Allegro: public AllegroBase{
 public:
-    Allegro(void (*draw)(), void (*update)());
+    static Allegro &Instance() {
+        static Allegro instance;
+        return instance;
+    }
 
-    virtual ~Allegro();
+    ~Allegro() override = default;
 
     void Fps() override;
     void Draw() override;
-
-private:
-
-    DrawCallback draw;
-    FpsCallback update;
+    void Run() override;
 };
 
 

@@ -7,7 +7,7 @@
 
 #include "../util/Vector2.h"
 #include "Transform.h"
-#include "../allegro/Allegro.h"
+#include "../allegro/AllegroBase.hpp"
 
 // game object is something that can be placed in the world and drawn
 class GameObject: public Transform {

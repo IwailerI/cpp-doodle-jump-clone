@@ -4,31 +4,31 @@
 
 #include "Collider.h"
 
-const Vector2 &Collider::getDimensions() const {
-    return _dimensions;
-}
+bool Collider::isColliding(Collider *col) const {
+    Vector2 position = getPosition();
+    Vector2 colPosition = col->getPosition();
 
-void Collider::setDimensions(const Vector2 &dimensions) {
-    _dimensions = dimensions;
-}
+    Vector2 p1 = colPosition + col->getDimensions();
+    Vector2 p2 = position + getDimensions();
 
-Collider::Collider(Vector2 position, Vector2 dimensions, bool oneway):
-        Transform(_position, 0, Vector2(1, 1)), _dimensions(dimensions), _oneway(oneway)
-        {}
-
-Collider::Collider():
-    Transform(), _dimensions(Vector2(0, 0)), _oneway(false)
-    {}
-
-bool Collider::isColliding(Collider *col) {
-    Vector2 p1 = col->_position + col->_dimensions;
-    Vector2 p2 = _position + _dimensions;
 
     // return pos is within other col or pos+dimensions is within other col
-    bool overlapping = ((_position.x <= p2.x && _position.x >= col->_position.x) || (p1.x <= p2.x && p1.x >= col->_position.x))
-                       && ((_position.y <= p2.y && _position.y >= col->_position.y) || (p1.y <= p2.y && p1.y >= col->_position.y));
-    if (!col->_oneway)
-        return overlapping;
+    return ((position.x <= p2.x && position.x >= colPosition.x) || (p1.x <= p2.x && p1.x >= colPosition.x))
+                       && ((position.y <= p2.y && position.y >= colPosition.y) || (p1.y <= p2.y && p1.y >= colPosition.y));
+}
 
-    return _getVelocity().y >= 0 && overlapping;
+int Collider::getPhysicsId() const {
+    return _physics_id;
+}
+
+void Collider::setPhysicsId(int physicsId) {
+    _physics_id = physicsId;
+}
+
+Vector2 Collider::getColliderVelocity() const {
+    return {0, 0};
+}
+
+int Collider::getPlayerInteraction() const {
+    return _player_interaction;
 }

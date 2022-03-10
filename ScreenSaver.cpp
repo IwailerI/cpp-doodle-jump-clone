@@ -23,12 +23,13 @@ void ScreenSaver::Draw() {
 }
 
 void ScreenSaver::Update() {
-    for (int i = 0; i< _size; i++) {
+    for (int i = 0; i < _size; i++) {
         _objects[i]->Update();
     }
 }
 
 int ScreenSaver::Add(GameObject *s) {
+    printf("Added a GameObject!\n");
     if (_size >= MAX_OBJECTS) return -1;
     _objects[_size++] = s;
     return _size-1;

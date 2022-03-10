@@ -1,33 +1,29 @@
+#include "allegro/Allegro.h"
 #include "ScreenSaver.h"
-#include "objects/simpleShapes/ColorRect.h"
-
-
-int size = 10;
-ScreenSaver ss = ScreenSaver::Instance();
+#include "PhysicsServer.h"
+#include "Player.h"
+#include "objects/platforms/Platform.h"
 
 void setup() {
-    ColorRect *c = new ColorRect(Vector2(200, 200), al_map_rgb(255,255,255), Vector2(50, 100));
-    ss.Add(c);
-}
+    ScreenSaver &ss = ScreenSaver::Instance();
+    PhysicsServer &ps = PhysicsServer::Instance();
 
-void update(){
-    ss.Update();
-}
+    auto *player = new Player(Vector2(200, 200));
+    ss.Add(player);
+    ps.RegisterPlayer(player);
 
-void draw() {
-    ss.Draw();
+    auto *platform = new Platform(Vector2(200, 500));
+    ss.Add(platform);
+    ps.Add(platform);
 }
 
 int main() {
-    srand(time(0));
-
-    Allegro allegro = Allegro(draw, update);
-
-    allegro.Init(SCREEN_W, SCREEN_H, FPS);
-
     setup();
 
-    allegro.Run();
+    Allegro *al = &Allegro::Instance();
+
+    al->Run();
+
 
     return 0;
 }

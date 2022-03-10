@@ -5,8 +5,8 @@
 #ifndef PROJECT_SCREENSAVER_H
 #define PROJECT_SCREENSAVER_H
 
+#include "allegro/AllegroBase.hpp"
 #include "objects/GameObject.h"
-#include "allegro/Allegro.h"
 
 const int MAX_OBJECTS = 200;
 

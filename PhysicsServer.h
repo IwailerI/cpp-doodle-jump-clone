@@ -6,7 +6,6 @@
 #define PROJECT_PHYSICSSERVER_H
 
 #include "objects/Collider.h"
-#include "Player.h"
 
 const int MAX_BODIES = 100;
 
@@ -15,7 +14,7 @@ private:
     PhysicsServer() = default;
 
 protected:
-    Player *_player;
+    Collider *_player;
     Collider *_bodies[MAX_BODIES];
 
 
@@ -27,7 +26,7 @@ public:
         return instance;
     }
 
-    void RegisterPlayer(Player *player);
+    void RegisterPlayer(Collider *player);
 
     int Add(Collider *col);
     void Remove(int i);
