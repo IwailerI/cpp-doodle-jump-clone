@@ -19,7 +19,6 @@ void PhysicsServer::Update() {
 }
 
 int PhysicsServer::Add(Collider *s) {
-    printf("Added a collider!\n");
     if (_size >= MAX_BODIES) return -1;
     _bodies[_size] = s;
     _bodies[_size]->setPhysicsId(_size);

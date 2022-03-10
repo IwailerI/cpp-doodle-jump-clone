@@ -13,7 +13,7 @@ const double DELETE_TRESHOLD = -30.0;
 
 class Platform: public Sprite, public Collider {
 public:
-    explicit Platform(Vector2 position);
+    Platform(Vector2 position);
     ~Platform() override = default;
 
     const Vector2 &getPosition() const override;

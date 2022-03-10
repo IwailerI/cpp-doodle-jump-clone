@@ -6,6 +6,8 @@
 
 Allegro::Allegro(): _screen_saver(ScreenSaver::Instance()), _physics_server(PhysicsServer::Instance()) {
     Init(SCREEN_W, SCREEN_H, FPS);
+
+    _screen_saver = ScreenSaver::Instance();
 }
 
 void Allegro::Fps() {

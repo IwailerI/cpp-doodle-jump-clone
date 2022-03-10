@@ -18,9 +18,11 @@ void setup() {
 }
 
 int main() {
-    setup();
+    al_init();
 
     Allegro *al = &Allegro::Instance();
+
+    setup();
 
     al->Run();
 

@@ -24,6 +24,7 @@ Platform::Platform(Vector2 position):
     {
     _player_interaction = Bounce;
     _position = position;
+    printf("%d %d\n", position.x, position.y);
 }
 
 const Vector2 &Platform::getPosition() const {

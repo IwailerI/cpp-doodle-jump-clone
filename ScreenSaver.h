@@ -18,8 +18,7 @@ private:
 protected:
     GameObject *_objects[MAX_OBJECTS]{};
     int _size;
-
-    const ALLEGRO_COLOR _background_color = al_map_rgb(0, 0, 0);
+    ALLEGRO_COLOR _background_color;
 
 public:
     // returns current singleton instance or creates a new one
