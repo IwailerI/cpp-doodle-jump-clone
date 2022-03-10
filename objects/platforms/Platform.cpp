@@ -22,9 +22,9 @@ void Platform::_suicide() {
 Platform::Platform(Vector2 position):
     Sprite(al_map_rgb(255, 255, 0), Vector2(100, 20))
     {
+    _oneway = true;
     _player_interaction = Bounce;
     _position = position;
-    printf("%d %d\n", position.x, position.y);
 }
 
 const Vector2 &Platform::getPosition() const {

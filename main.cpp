@@ -15,6 +15,11 @@ void setup() {
     auto *platform = new Platform(Vector2(200, 500));
     ss.Add(platform);
     ps.Add(platform);
+
+    platform = new Platform(Vector2(150, 700));
+    ss.Add(platform);
+    ps.Add(platform);
+
 }
 
 int main() {

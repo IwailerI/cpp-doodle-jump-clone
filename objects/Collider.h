@@ -25,6 +25,8 @@ public:
     int getPhysicsId() const;
     void setPhysicsId(int physicsId);
 
+    bool isOneway() const {return _oneway;}
+
     int getPlayerInteraction() const;
 
     bool isColliding(Collider *col) const;

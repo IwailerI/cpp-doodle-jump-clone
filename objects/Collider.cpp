@@ -13,7 +13,13 @@ bool Collider::isColliding(Collider *col) const {
     Vector2 center1 = getPosition() + ext1;
     Vector2 center2 = col->getPosition() + ext2;
 
-    return (absf(center1.x-center2.x) <= ext1.x + ext2.x) && (absf(center1.y-center2.y) <= ext1.y + ext2.y);
+    bool colliding = (absf(center1.x-center2.x) <= ext1.x + ext2.x) && (absf(center1.y-center2.y) <= ext1.y + ext2.y);
+
+    if (col->isOneway()) {
+        colliding = colliding && getColliderVelocity().y > 0;
+    }
+
+    return colliding;
 }
 
 int Collider::getPhysicsId() const {

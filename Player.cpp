@@ -17,8 +17,8 @@ void Player::_update() {
     _velocity.x = input * MOVEMENT_SPEED;
 
     _position += _velocity;
-    if (_position != Vector2(0, 0))
-        printf("%d %d\n", _position.x, _position.y);
+    if (_position.x < 0) _position.x += SCREEN_W;
+    else if (_position.x > SCREEN_W) _position.x -= SCREEN_W;
 }
 
 void Player::onCollision(Collider *col) {
