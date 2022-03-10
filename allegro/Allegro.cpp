@@ -4,7 +4,7 @@
 
 #include "Allegro.h"
 
-Allegro::Allegro(): _screen_saver(ScreenSaver::Instance()), _physics_server(PhysicsServer::Instance()) {
+Allegro::Allegro(): _screen_saver(ScreenSaver::Instance()), _physics_server(PhysicsServer::Instance()), _level_manager(LevelManager::Instance()) {
     Init(SCREEN_W, SCREEN_H, FPS);
 
     _screen_saver = ScreenSaver::Instance();
@@ -12,6 +12,7 @@ Allegro::Allegro(): _screen_saver(ScreenSaver::Instance()), _physics_server(Phys
 
 void Allegro::Fps() {
     _physics_server.Update();
+    _level_manager.Update();
     _screen_saver.Update();
 }
 

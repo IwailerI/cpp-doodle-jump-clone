@@ -5,9 +5,9 @@
 #include "GameObject.h"
 
 GameObject::GameObject(const Vector2 &position, double rotation, const Vector2 &scale):
-    Transform(position, rotation, scale) {}
+    Transform(position, rotation, scale), _marked_for_object_deletion(0) {}
 
-GameObject::GameObject(): Transform() {}
+GameObject::GameObject(): Transform(), _marked_for_object_deletion(0) {}
 
 bool GameObject::isVisible() const {
     return _visible;
@@ -33,4 +33,12 @@ void GameObject::Draw() {
 void GameObject::Update() {
     if (!_sleeping)
         _update();
+}
+
+int GameObject::getObjectId() const {
+    return _object_id;
+}
+
+void GameObject::setObjectId(int objectId) {
+    _object_id = objectId;
 }

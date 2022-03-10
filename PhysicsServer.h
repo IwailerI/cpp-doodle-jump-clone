@@ -17,8 +17,9 @@ protected:
     Collider *_player;
     Collider *_bodies[MAX_BODIES];
 
-
     int _size;
+
+    void remove(int i, bool clear = true);
 public:
     // returns current singleton instance or creates a new one
     static PhysicsServer &Instance() {
@@ -29,7 +30,7 @@ public:
     void RegisterPlayer(Collider *player);
 
     int Add(Collider *col);
-    void Remove(int i);
+
 
     void Update();
 

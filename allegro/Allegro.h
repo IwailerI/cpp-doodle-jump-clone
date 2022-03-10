@@ -8,12 +8,14 @@
 #include "AllegroBase.hpp"
 #include "../PhysicsServer.h"
 #include "../ScreenSaver.h"
+#include "../LevelManager.h"
 
 class Allegro: public AllegroBase {
 private:
     Allegro();
     PhysicsServer &_physics_server;
     ScreenSaver &_screen_saver;
+    LevelManager &_level_manager;
 
 public:
     static Allegro &Instance() {

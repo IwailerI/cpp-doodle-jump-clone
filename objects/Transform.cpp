@@ -33,3 +33,7 @@ void Transform::setScale(const Vector2 &scale) {
 
 Transform::Transform(): _position(Vector2(0, 0)), _rotation(0), _scale(Vector2(1, 1)){}
 
+void Transform::Offset(const Vector2 &vec) {
+    _position += vec;
+}
+

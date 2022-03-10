@@ -14,6 +14,7 @@ protected:
     int _physics_id = -1;
     int _player_interaction = -1;
     bool _oneway = false;
+    int _marked_for_physics_deletion = 0; // 0 - no, 1 - yes, delete only from list, 2 - yes, also clear memmory
 public:
     virtual ~Collider() = default;
 
@@ -24,6 +25,9 @@ public:
 
     int getPhysicsId() const;
     void setPhysicsId(int physicsId);
+
+    void markForPhysicsDeletion(bool clear = false) { _marked_for_physics_deletion = 1 + clear;}
+    int getPhysicsDeletionMark() const {return _marked_for_physics_deletion;}
 
     bool isOneway() const {return _oneway;}
 

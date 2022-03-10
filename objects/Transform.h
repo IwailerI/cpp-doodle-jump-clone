@@ -23,6 +23,7 @@ public:
     // getters/setters
     Vector2 getPosition() const;
     void setPosition(const Vector2 &position);
+    void Offset(const Vector2 &vec);
 
     virtual double getRotation() const;
 

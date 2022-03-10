@@ -7,9 +7,9 @@
 
 #include "../Collider.h"
 #include "../Sprite.h"
-#include "../../PhysicsServer.h"
+#include "../../allegro/Allegro.h"
 
-const double DELETE_TRESHOLD = -30.0;
+const double DELETE_TRESHOLD = SCREEN_H+30;
 
 class Platform: public Sprite, public Collider {
 public:

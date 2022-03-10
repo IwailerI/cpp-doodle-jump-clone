@@ -19,6 +19,7 @@ add_executable(project
         Player.cpp Player.h
         PhysicsServer.cpp PhysicsServer.h
         objects/platforms/Platform.cpp objects/platforms/Platform.h
+        LevelManager.cpp LevelManager.h
         )
 
 target_link_libraries(project

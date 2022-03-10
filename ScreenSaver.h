@@ -20,6 +20,11 @@ protected:
     int _size;
     ALLEGRO_COLOR _background_color;
 
+    Vector2 _offset;
+
+    //    Removes element at index i and optionally clears memmory
+    void remove(int i, bool clear = true);
+
 public:
     // returns current singleton instance or creates a new one
     static ScreenSaver &Instance() {
@@ -34,8 +39,7 @@ public:
 
     int Add(GameObject *s);
 
-//    Removes element at index i and clears it space
-    void Remove(int i);
+    void Offset(Vector2 v);
 };
 
 
