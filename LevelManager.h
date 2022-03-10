@@ -5,15 +5,24 @@
 #ifndef PROJECT_LEVELMANAGER_H
 #define PROJECT_LEVELMANAGER_H
 
+#include "allegro/Allegro.h"
+#include "objects/platforms/Platform.h"
 #include "ScreenSaver.h"
+#include "PhysicsServer.h"
+#include <cstdlib>
 
 class LevelManager {
 private:
-    LevelManager(): _screen_saver(ScreenSaver::Instance()) {};
+    LevelManager();
 
 protected:
     ScreenSaver &_screen_saver;
-    GameObject *_player;
+    GameObject *_player = nullptr;
+
+    double _next_distance = 0.0;
+    double _last_platform = 0.0;
+
+    void _getNextPlatform();
 
 public:
     static LevelManager &Instance() {
