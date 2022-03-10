@@ -4,14 +4,21 @@
 
 #include "Player.h"
 
+
 void Player::_update() {
     _velocity.y += GRAVITY;
     double input = 0.0;
 
-//    if (AllegroBase::IsPressed(ALLEGRO_KEY_LEFT)) input--;
-//    if
+    if (allegro.IsPressed(ALLEGRO_KEY_LEFT) || allegro.IsPressed(ALLEGRO_KEY_A))
+        input--;
+    if (allegro.IsPressed(ALLEGRO_KEY_RIGHT) || allegro.IsPressed(ALLEGRO_KEY_D))
+        input++;
+
+    _velocity.x = input * MOVEMENT_SPEED;
 
     _position += _velocity;
+    if (_position != Vector2(0, 0))
+        printf("%d %d\n", _position.x, _position.y);
 }
 
 void Player::onCollision(Collider *col) {
@@ -36,7 +43,7 @@ void Player::setVelocity(const Vector2 &velocity) {
     _velocity = velocity;
 }
 
-Player::Player(Vector2 position) {
+Player::Player(Vector2 position): allegro(Allegro::Instance()) {
     _position = position;
     _color = al_map_rgb(255, 0, 0);
     _dimensions = Vector2(25, 50);

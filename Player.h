@@ -7,13 +7,13 @@
 
 #include "objects/Sprite.h"
 #include "objects/Collider.h"
-//#include "PhysicsServer.h"
 #include "objects/platforms/Platform.h"
 #include "allegro/Allegro.h"
 #include <iostream> // debug TODO remove
 
 const double GRAVITY = 1.5;
 const double JUMP_VELOCITY = 30;
+const double MOVEMENT_SPEED = 10;
 
 class Player: public Sprite, public Collider {
 protected:
@@ -35,6 +35,10 @@ public:
     const Vector2 &getDimensions() const override;
 
     Vector2 getColliderVelocity() const override;
+
+private:
+    Allegro &allegro;
+
 };
 
 

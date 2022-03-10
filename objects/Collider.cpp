@@ -4,17 +4,16 @@
 
 #include "Collider.h"
 
+double absf(double n) {if (n<0) return -n; return n;}
+
 bool Collider::isColliding(Collider *col) const {
-    Vector2 position = getPosition();
-    Vector2 colPosition = col->getPosition();
+    Vector2 ext1 = getDimensions() * .5;
+    Vector2 ext2 = col->getDimensions() * .5;
 
-    Vector2 p1 = colPosition + col->getDimensions();
-    Vector2 p2 = position + getDimensions();
+    Vector2 center1 = getPosition() + ext1;
+    Vector2 center2 = col->getPosition() + ext2;
 
-
-    // return pos is within other col or pos+dimensions is within other col
-    return ((position.x <= p2.x && position.x >= colPosition.x) || (p1.x <= p2.x && p1.x >= colPosition.x))
-                       && ((position.y <= p2.y && position.y >= colPosition.y) || (p1.y <= p2.y && p1.y >= colPosition.y));
+    return (absf(center1.x-center2.x) <= ext1.x + ext2.x) && (absf(center1.y-center2.y) <= ext1.y + ext2.y);
 }
 
 int Collider::getPhysicsId() const {
