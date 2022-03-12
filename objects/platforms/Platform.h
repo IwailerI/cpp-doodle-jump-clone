@@ -7,7 +7,6 @@
 
 #include "../Collider.h"
 #include "../Sprite.h"
-#include "../../allegro/Allegro.h"
 
 const double DELETE_TRESHOLD = SCREEN_H+30;
 

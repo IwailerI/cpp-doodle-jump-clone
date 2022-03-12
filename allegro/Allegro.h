@@ -8,9 +8,8 @@
 #include "AllegroBase.hpp"
 #include "../PhysicsServer.h"
 #include "../ScreenSaver.h"
+#include "../LevelManager.h"
 
-class LevelManager;
-LevelManager &Instance();
 void Update();
 
 class Allegro: public AllegroBase {

@@ -15,22 +15,9 @@ void setup() {
     ps.RegisterPlayer(player);
     lm.RegisterPlayer(player);
 
-    auto *platform = new Platform(Vector2(200, 500));
+    auto *platform = new Platform(Vector2(150, 700));
     ss.Add(platform);
     ps.Add(platform);
-
-    platform = new Platform(Vector2(150, 700));
-    ss.Add(platform);
-    ps.Add(platform);
-
-    platform = new Platform(Vector2(200, 300));
-    ss.Add(platform);
-    ps.Add(platform);
-
-    platform = new Platform(Vector2(200, 150));
-    ss.Add(platform);
-    ps.Add(platform);
-
 }
 
 int main() {

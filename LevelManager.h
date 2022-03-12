@@ -5,7 +5,6 @@
 #ifndef PROJECT_LEVELMANAGER_H
 #define PROJECT_LEVELMANAGER_H
 
-#include "allegro/Allegro.h"
 #include "objects/platforms/Platform.h"
 #include "ScreenSaver.h"
 #include "PhysicsServer.h"
@@ -16,11 +15,10 @@ private:
     LevelManager();
 
 protected:
-    ScreenSaver &_screen_saver;
     GameObject *_player = nullptr;
 
     double _next_distance = 0.0;
-    double _last_platform = 0.0;
+    double _last_platform = 700;
 
     void _getNextPlatform();
 
