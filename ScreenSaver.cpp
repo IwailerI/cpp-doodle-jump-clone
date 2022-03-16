@@ -6,6 +6,7 @@
 
 ScreenSaver::ScreenSaver(): _size(0), _background_color(al_map_rgb(0, 0, 0)), _offset(Vector2(0, 0)) {
     memset(_objects, 0, sizeof(_objects));
+    _font = ResourceManager::Instance().font;
 }
 
 ScreenSaver::~ScreenSaver() {
@@ -55,12 +56,14 @@ void ScreenSaver::Offset(Vector2 v) {
     _offset += v;
 }
 
-void ScreenSaver::DrawEndScreen() {
-    al_clear_to_color(al_map_rgb(179, 14, 8));
-}
-
 void ScreenSaver::DrawTitleScreen() {
     al_clear_to_color(al_map_rgb(71, 83, 132));
+
+    al_draw_text(_font, al_map_rgb(255, 255, 255), SCREEN_W*.5, SCREEN_H*.5, ALLEGRO_ALIGN_CENTER, "{Press SPACE to start}");
+}
+
+void ScreenSaver::DrawEndScreen() {
+    al_clear_to_color(al_map_rgb(179, 14, 8));
 }
 
 void ScreenSaver::DrawPauseMenu() {

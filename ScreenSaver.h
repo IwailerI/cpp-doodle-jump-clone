@@ -24,6 +24,8 @@ protected:
 
     Vector2 _offset;
 
+    ALLEGRO_FONT *_font;
+
     //    Removes element at index i and optionally clears memmory
     void _remove(int i, bool clear = true);
 
@@ -39,9 +41,9 @@ public:
     void Draw();
     void Update();
 
-    void DrawEndScreen();
     void DrawTitleScreen();
     void DrawPauseMenu();
+    void DrawEndScreen();
 
     int Add(GameObject *s);
     void Offset(Vector2 v);
