@@ -7,8 +7,12 @@
 
 #include "allegro/AllegroBase.hpp"
 #include "objects/GameObject.h"
+#include "objects/platforms/Platform.h"
+#include "PhysicsServer.h"
 
 const int MAX_OBJECTS = 200;
+
+enum STATE {TITLE, INGAME, END, PAUSE};
 
 // Singleton
 class ScreenSaver {
@@ -23,7 +27,16 @@ protected:
     Vector2 _offset;
 
     //    Removes element at index i and optionally clears memmory
-    void remove(int i, bool clear = true);
+    void _remove(int i, bool clear = true);
+
+    void _clear();
+
+    int _state = INGAME;
+
+    void _endScreen();
+    void _startGame();
+    void _titleScreen();
+    void _drawPause();
 
 public:
     // returns current singleton instance or creates a new one
@@ -36,6 +49,8 @@ public:
 
     void Draw();
     void Update();
+
+    void ChangeState(int state);
 
     int Add(GameObject *s);
 

@@ -5,6 +5,13 @@
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_image.h>
+#include <allegro5/allegro_font.h>
+#include <allegro5/allegro_ttf.h>
+
+#include <iostream>
+#include "windows.h"
+#include <allegro5/allegro_windows.h>
+
 
 const int FPS = 60;
 const int SCREEN_W = 480;

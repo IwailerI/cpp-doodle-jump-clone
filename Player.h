@@ -9,6 +9,7 @@
 #include "objects/Collider.h"
 #include "objects/platforms/Platform.h"
 #include "allegro/Allegro.h"
+#include "ResourceManager.h"
 #include <iostream> // debug TODO remove
 
 const double GRAVITY = 1.5;
@@ -20,6 +21,7 @@ protected:
     Vector2 _velocity;
 
     void _update() override; // also handles input
+    void _draw() override;
     // TODO: override _draw(), to play custom animations
     // TODO: make player hitbox a little taller then sprite
 
@@ -31,10 +33,15 @@ public:
     const Vector2 &getVelocity() const;
     void setVelocity(const Vector2 &velocity);
 
-    const Vector2 &getPosition() const override;
-    const Vector2 &getDimensions() const override;
-
     Vector2 getColliderVelocity() const override;
+
+    void die();
+
+    Vector2 getPosition() const override;
+
+    Vector2 getDimensions() const override;
+
+
 
 private:
     Allegro &allegro;

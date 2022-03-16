@@ -7,16 +7,17 @@
 
 #include "../Collider.h"
 #include "../Sprite.h"
+#include "../../ResourceManager.h"
 
 const double DELETE_TRESHOLD = SCREEN_H+30;
 
 class Platform: public Sprite, public Collider {
 public:
-    Platform(Vector2 position);
+    explicit Platform(Vector2 position);
     ~Platform() override = default;
 
-    const Vector2 &getPosition() const override;
-    const Vector2 &getDimensions() const override;
+    Vector2 getPosition() const override;
+    Vector2 getDimensions() const override;
     void onCollision(Collider *col) override;
 
 protected:

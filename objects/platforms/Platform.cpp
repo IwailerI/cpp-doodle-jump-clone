@@ -26,19 +26,19 @@ void Platform::_suicide() {
 }
 
 Platform::Platform(Vector2 position):
-    Sprite(al_map_rgb(255, 255, 0), Vector2(100, 20))
+    Sprite(position, ResourceManager::Instance().sprite_platform)
     {
     _oneway = true;
     _player_interaction = Bounce;
     _position = position;
 }
 
-const Vector2 &Platform::getPosition() const {
+Vector2 Platform::getPosition() const {
     return _position;
 }
 
-const Vector2 &Platform::getDimensions() const {
-    return _dimensions;
+Vector2 Platform::getDimensions() const {
+    return GetImageSize();
 }
 
 void Platform::onCollision(Collider *col) {

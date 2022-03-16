@@ -5,9 +5,10 @@
 #include "Allegro.h"
 
 Allegro::Allegro(): _screen_saver(ScreenSaver::Instance()), _physics_server(PhysicsServer::Instance()), _level_manager(LevelManager::Instance()) {
-    Init(SCREEN_W, SCREEN_H, FPS);
+    if (!Init(SCREEN_W, SCREEN_H, FPS))
+        return;
 
-    _screen_saver = ScreenSaver::Instance();
+
 }
 
 void Allegro::Fps() {

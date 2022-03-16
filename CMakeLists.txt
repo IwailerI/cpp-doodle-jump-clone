@@ -3,7 +3,7 @@ project(project)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(C:/Program\ Files/JetBrains/CLion\ 2021.3.2/bin/mingw/include)
+include_directories(C:/Program\ Files/JetBrains/CLion\ 2021.3.2/bin/mingw)
 
 add_executable(project
         main.cpp
@@ -20,9 +20,13 @@ add_executable(project
         PhysicsServer.cpp PhysicsServer.h
         objects/platforms/Platform.cpp objects/platforms/Platform.h
         LevelManager.cpp LevelManager.h
+        ResourceManager.cpp ResourceManager.h
         )
 
 target_link_libraries(project
         allegro
         allegro_primitives
+        allegro_image
+        allegro_font
+        allegro_ttf
         )

@@ -1,9 +1,6 @@
 //namespace AllegroBase;
 
 #include "AllegroBase.hpp"
-#include <iostream>
-#include "windows.h"
-#include <allegro5/allegro_windows.h>
 
 using namespace std;
 
@@ -45,7 +42,25 @@ bool AllegroBase::Init( int screenWidth, int screenHeight, int fps )
 
     if ( !al_init_primitives_addon() )
     {
-        cout << "failed to init addons!" << endl;
+        cout << "failed to init allegro primitives!" << endl;
+        return false;
+    }
+
+    if( !al_init_font_addon() )
+    {
+        cout << "failed to init allegro font!";
+        return false;
+    }
+
+    if( !al_init_ttf_addon() )
+    {
+        cout << "failed to init allegro ttf!";
+        return false;
+    }
+
+    if( !al_init_image_addon() )
+    {
+        cout << "failed to init allegro image!";
         return false;
     }
 
@@ -58,7 +73,7 @@ bool AllegroBase::Init( int screenWidth, int screenHeight, int fps )
 
     if( !al_install_keyboard() )
     {
-        cout << "failed to install keyboard" << endl;
+        cout << "failed to install keyboard!" << endl;
         return false;
     }
 
@@ -152,7 +167,6 @@ bool AllegroBase::IsPressed( int keycode )
     return pressedKeys_[ keycode ];
 }
 
-void AllegroBase::FocusGraphicWin()
-{
-    SetFocus( al_get_win_window_handle( alDisplay_ ) );
+void AllegroBase::FocusGraphicWin() {
+    SetFocus(al_get_win_window_handle(alDisplay_));
 }

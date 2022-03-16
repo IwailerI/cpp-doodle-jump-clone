@@ -13,12 +13,14 @@
 class LevelManager {
 private:
     LevelManager();
+    double getMinDistance();
 
 protected:
     GameObject *_player = nullptr;
 
     double _next_distance = 0.0;
-    double _last_platform = 700;
+    double _last_platform = 700.0;
+    double _total_distance = 0.0;
 
     void _getNextPlatform();
 

@@ -18,8 +18,8 @@ protected:
 public:
     virtual ~Collider() = default;
 
-    virtual const Vector2 &getPosition() const = 0;
-    virtual const Vector2 &getDimensions() const = 0;
+    virtual Vector2 getPosition() const = 0;
+    virtual Vector2 getDimensions() const = 0;
 
     virtual Vector2 getColliderVelocity() const;
 
