@@ -46,6 +46,8 @@ void LevelManager::_getNextPlatform() {
     PhysicsServer::Instance().Add(p);
 }
 
-LevelManager::LevelManager() {
-
+void LevelManager::Reset() {
+    _next_distance = 0.0;
+    _last_platform = 700.0;
+    _total_distance = 0.0;
 }

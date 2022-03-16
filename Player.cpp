@@ -7,12 +7,13 @@
 
 void Player::_update() {
     _velocity.y += GRAVITY;
-    double input = 0.0;
 
-    if (allegro.IsPressed(ALLEGRO_KEY_LEFT) || allegro.IsPressed(ALLEGRO_KEY_A))
-        input--;
-    if (allegro.IsPressed(ALLEGRO_KEY_RIGHT) || allegro.IsPressed(ALLEGRO_KEY_D))
-        input++;
+    double input = is_right_held - is_left_held;;
+
+//    if (allegro.IsPressed(ALLEGRO_KEY_LEFT) || allegro.IsPressed(ALLEGRO_KEY_A))
+//        input--;
+//    if (allegro.IsPressed(ALLEGRO_KEY_RIGHT) || allegro.IsPressed(ALLEGRO_KEY_D))
+//        input++;
 
     _velocity.x = input * MOVEMENT_SPEED;
 
@@ -39,13 +40,13 @@ void Player::setVelocity(const Vector2 &velocity) {
     _velocity = velocity;
 }
 
-Player::Player(Vector2 position): allegro(Allegro::Instance()) {
+Player::Player(Vector2 position) {
     _position = position;
     _velocity = Vector2(0, 0);
     _scale = Vector2(1, 1);
     _sprite = ResourceManager::Instance().sprite_player;
 
-    _sprite_offset.y = -(GetImageSize().y-20);
+    _sprite_offset.y = -(GetImageSize().y-10);
     _sprite_offset.x = -32.0;
 }
 

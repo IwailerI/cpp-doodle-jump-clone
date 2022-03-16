@@ -37,3 +37,16 @@ void PhysicsServer::remove(int i, bool clear) {
     _bodies[i] = _bodies[--_size];
     _bodies[_size] = nullptr;
 }
+
+void PhysicsServer::Clear(bool soft) {
+    if (soft) {
+        for (int i = 0; i < _size; i++) {
+            _bodies[i] = nullptr;
+        }
+        _size = 0;
+    } else {
+        for (int i = 0; i < _size; i++)
+            if (_bodies[i] != nullptr)
+                remove(i, true);
+    }
+}

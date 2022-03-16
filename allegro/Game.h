@@ -2,30 +2,38 @@
 // Created by wailer on 22/02/2022.
 //
 
-#ifndef PROJECT_ALLEGRO_H
-#define PROJECT_ALLEGRO_H
+#ifndef PROJECT_GAME_H
+#define PROJECT_GAME_H
 
 #include "AllegroBase.hpp"
 #include "../PhysicsServer.h"
 #include "../ScreenSaver.h"
 #include "../LevelManager.h"
+#include "../Player.h"
 
-void Update();
+enum STATE {TITLE, INGAME, END, PAUSE};
 
-class Allegro: public AllegroBase {
+class Game: public AllegroBase {
 private:
-    Allegro();
+    Game();
     PhysicsServer &_physics_server;
     ScreenSaver &_screen_saver;
     LevelManager &_level_manager;
 
+    STATE _state = TITLE;
+
+    void _start_game();
+    void _update_player_input();
+
+    Player *_player = nullptr;
+
 public:
-    static Allegro &Instance() {
-        static Allegro instance;
+    static Game &Instance() {
+        static Game instance;
         return instance;
     }
 
-    ~Allegro() override = default;
+    ~Game() override = default;
 
     void Fps() override;
     void Draw() override;
@@ -33,4 +41,4 @@ public:
 };
 
 
-#endif //PROJECT_ALLEGRO_H
+#endif //PROJECT_GAME_H

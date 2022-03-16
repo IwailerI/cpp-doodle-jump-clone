@@ -8,9 +8,8 @@
 #include "objects/Sprite.h"
 #include "objects/Collider.h"
 #include "objects/platforms/Platform.h"
-#include "allegro/Allegro.h"
 #include "ResourceManager.h"
-#include <iostream> // debug TODO remove
+#include <iostream> // debug TODO remove and  make normal death sequance
 
 const double GRAVITY = 1.5;
 const double JUMP_VELOCITY = 30;
@@ -23,7 +22,6 @@ protected:
     void _update() override; // also handles input
     void _draw() override;
     // TODO: override _draw(), to play custom animations
-    // TODO: make player hitbox a little taller then sprite
 
 public:
     explicit Player(Vector2 position);
@@ -41,11 +39,8 @@ public:
 
     Vector2 getDimensions() const override;
 
-
-
-private:
-    Allegro &allegro;
-
+    bool is_right_held = false;
+    bool is_left_held = false;
 };
 
 

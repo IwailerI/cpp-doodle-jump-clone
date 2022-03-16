@@ -34,7 +34,7 @@ public:
 
     void Update();
 
-
+    void Clear(bool soft = true);
 };
 
 #endif //PROJECT_PHYSICSSERVER_H

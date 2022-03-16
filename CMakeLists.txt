@@ -8,7 +8,7 @@ include_directories(C:/Program\ Files/JetBrains/CLion\ 2021.3.2/bin/mingw)
 add_executable(project
         main.cpp
         allegro/AllegroBase.hpp allegro/AllegroBase.cpp
-        allegro/Allegro.cpp allegro/Allegro.h
+        allegro/Game.cpp allegro/Game.h
         util/Vector2.cpp util/Vector2.h
         ScreenSaver.cpp ScreenSaver.h
         objects/GameObject.cpp objects/GameObject.h

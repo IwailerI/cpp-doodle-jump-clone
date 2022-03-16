@@ -12,8 +12,6 @@
 
 const int MAX_OBJECTS = 200;
 
-enum STATE {TITLE, INGAME, END, PAUSE};
-
 // Singleton
 class ScreenSaver {
 private:
@@ -29,15 +27,6 @@ protected:
     //    Removes element at index i and optionally clears memmory
     void _remove(int i, bool clear = true);
 
-    void _clear();
-
-    int _state = INGAME;
-
-    void _endScreen();
-    void _startGame();
-    void _titleScreen();
-    void _drawPause();
-
 public:
     // returns current singleton instance or creates a new one
     static ScreenSaver &Instance() {
@@ -50,11 +39,14 @@ public:
     void Draw();
     void Update();
 
-    void ChangeState(int state);
+    void DrawEndScreen();
+    void DrawTitleScreen();
+    void DrawPauseMenu();
 
     int Add(GameObject *s);
-
     void Offset(Vector2 v);
+
+    void Clear();
 };
 
 

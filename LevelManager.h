@@ -12,7 +12,7 @@
 
 class LevelManager {
 private:
-    LevelManager();
+    LevelManager() = default;
     double getMinDistance();
 
 protected:
@@ -33,6 +33,8 @@ public:
     void RegisterPlayer(GameObject *player) {_player = player;}
 
     void Update();
+
+    void Reset();
 };
 
 

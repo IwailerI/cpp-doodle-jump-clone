@@ -55,38 +55,21 @@ void ScreenSaver::Offset(Vector2 v) {
     _offset += v;
 }
 
-void ScreenSaver::_endScreen() {
+void ScreenSaver::DrawEndScreen() {
+    al_clear_to_color(al_map_rgb(179, 14, 8));
+}
+
+void ScreenSaver::DrawTitleScreen() {
+    al_clear_to_color(al_map_rgb(71, 83, 132));
+}
+
+void ScreenSaver::DrawPauseMenu() {
+    al_draw_filled_rectangle(0, 0, SCREEN_W, SCREEN_H, al_map_rgba(0, 0, 0, 200));
 
 }
 
-void ScreenSaver::_startGame() {
-    auto p = new Platform(Vector2(150, 700));
-    Add(p);
-    PhysicsServer::Instance().Add(p);
-}
-
-void ScreenSaver::_titleScreen() {
-
-}
-
-void ScreenSaver::_drawPause() {
-    al_draw_filled_rectangle(0, 0, SCREEN_W, SCREEN_H, al_map_rgba(0, 0, 0, 128));
-
-}
-
-void ScreenSaver::ChangeState(int state) {
-    if (state == INGAME && _state != PAUSE) {
-        _clear();
-        _startGame();
-    } else if (state == TITLE) {
-        _clear();
-    } else if (state == END) {
-        _clear();
-    }
-    _state =  state;
-}
-
-void ScreenSaver::_clear() {
+void ScreenSaver::Clear() {
     for (int i = 0; i < _size; i++)
-        _remove(i, true);
+        if (_objects[i] != nullptr)
+            _remove(i, true);
 }
