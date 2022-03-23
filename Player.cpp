@@ -10,10 +10,12 @@ void Player::_update() {
 
     double input = is_right_held - is_left_held;;
 
-//    if (allegro.IsPressed(ALLEGRO_KEY_LEFT) || allegro.IsPressed(ALLEGRO_KEY_A))
-//        input--;
-//    if (allegro.IsPressed(ALLEGRO_KEY_RIGHT) || allegro.IsPressed(ALLEGRO_KEY_D))
-//        input++;
+    if (input != 0)
+        if (input > 0)
+            _sprite = ResourceManager::Instance().sprite_player_right;
+        else
+            _sprite = ResourceManager::Instance().sprite_player_left;
+
 
     _velocity.x = input * MOVEMENT_SPEED;
 
@@ -44,7 +46,7 @@ Player::Player(Vector2 position) {
     _position = position;
     _velocity = Vector2(0, 0);
     _scale = Vector2(1, 1);
-    _sprite = ResourceManager::Instance().sprite_player;
+    _sprite = ResourceManager::Instance().sprite_player_right;
 
     _sprite_offset.y = -(GetImageSize().y-10);
     _sprite_offset.x = -(GetImageSize().x - getDimensions().x) * .5;

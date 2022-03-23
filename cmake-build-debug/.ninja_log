@@ -32,3 +32,14 @@
 9	1814	6697410132089667	CMakeFiles/project.dir/allegro/Game.cpp.obj	9a31e3fd5293d3a5
 14	1850	6697410132481504	CMakeFiles/project.dir/objects/platforms/Platform.cpp.obj	47444d7dfb416127
 1850	1986	6697410133815743	project.exe	36cfa26c14b9cf7f
+9	1782	6697415157806172	CMakeFiles/project.dir/ScreenSaver.cpp.obj	527faca484c3423c
+20	1820	6697415158198018	CMakeFiles/project.dir/ResourceManager.cpp.obj	af7812afa7172ff
+6	1835	6697415158326985	CMakeFiles/project.dir/allegro/Game.cpp.obj	9a31e3fd5293d3a5
+12	1836	6697415158351789	CMakeFiles/project.dir/objects/platforms/Platform.cpp.obj	47444d7dfb416127
+3	1852	6697415158505533	CMakeFiles/project.dir/main.cpp.obj	317fe9668810da71
+17	1869	6697415158679330	CMakeFiles/project.dir/LevelManager.cpp.obj	eb5c673984a74a82
+3	1745	6697416953909598	CMakeFiles/project.dir/main.cpp.obj	317fe9668810da71
+7	1773	6697416954172480	CMakeFiles/project.dir/allegro/Game.cpp.obj	9a31e3fd5293d3a5
+11	1794	6697416954316334	CMakeFiles/project.dir/ResourceManager.cpp.obj	af7812afa7172ff
+9	1816	6697416954599034	CMakeFiles/project.dir/Player.cpp.obj	8bca7031a25f4ce9
+1817	1948	6697416955903516	project.exe	36cfa26c14b9cf7f

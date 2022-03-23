@@ -8,10 +8,13 @@
 
 ResourceManager::ResourceManager() {
     // Player
-    sprite_player = al_load_bitmap((FILEPATH+"player_look_right.png").c_str());
-    if (sprite_player == nullptr) {
+    sprite_player_right = al_load_bitmap((FILEPATH+"player_look_right.png").c_str());
+    if (sprite_player_right == nullptr) {
         std::cout << "Unable to find " + FILEPATH << std::endl;
+        return;
     }
+    sprite_player_left = al_load_bitmap((FILEPATH+"player_look_left.png").c_str());
+
 
     // Platforms
     sprite_platform = al_load_bitmap((FILEPATH+"platform.png").c_str());

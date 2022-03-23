@@ -24,7 +24,8 @@ public:
 
     ALLEGRO_FONT *font;
 
-    ALLEGRO_BITMAP *sprite_player;
+    ALLEGRO_BITMAP *sprite_player_right;
+    ALLEGRO_BITMAP *sprite_player_left;
 
     ALLEGRO_BITMAP *sprite_platform;
 
