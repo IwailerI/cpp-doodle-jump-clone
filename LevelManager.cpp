@@ -5,7 +5,7 @@
 #include "LevelManager.h"
 
 const int SCROLL_TRESHOLD = SCREEN_H/3;
-const int PLATFORM_WIDTH = 100;
+const int PLATFORM_WIDTH = 114;
 const double MAX_PLATFORM_DISTANCE = 210;
 const double MIN_PLATFORM_DISTANCE = 40;
 const double DISTANCE_RAMPUP = SCREEN_H*25;

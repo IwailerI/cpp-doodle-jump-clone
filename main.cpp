@@ -1,7 +1,7 @@
 #include "allegro/Game.h"
 
 int main() {
-    al_init();
+    AllegroBase::InitAllegroAddons();
     Game *al = &Game::Instance();
     al->Run();
     return 0;

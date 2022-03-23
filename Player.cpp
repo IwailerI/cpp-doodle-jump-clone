@@ -18,8 +18,8 @@ void Player::_update() {
     _velocity.x = input * MOVEMENT_SPEED;
 
     _position += _velocity;
-    if (_position.x < 0) _position.x += SCREEN_W;
-    else if (_position.x > SCREEN_W) _position.x -= SCREEN_W;
+    if (_position.x < -GetImageSize().x) _position.x += SCREEN_W+GetImageSize().x;
+    else if (_position.x > SCREEN_W) _position.x -= SCREEN_W+GetImageSize().x;
 
     if (_position.y > SCREEN_H) {
         die();
@@ -47,7 +47,7 @@ Player::Player(Vector2 position) {
     _sprite = ResourceManager::Instance().sprite_player;
 
     _sprite_offset.y = -(GetImageSize().y-10);
-    _sprite_offset.x = -32.0;
+    _sprite_offset.x = -(GetImageSize().x - getDimensions().x) * .5;
 }
 
 Vector2 Player::getColliderVelocity() const {
@@ -65,7 +65,8 @@ Vector2 Player::getPosition() const {
 }
 
 Vector2 Player::getDimensions() const {
-    return {58.0, 10.0};
+    //return {58.0, 10.0};
+    return {70.0, 10.0};
 }
 
 void Player::_draw() {

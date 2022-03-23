@@ -6,6 +6,7 @@
 #define PROJECT_RESOURCEMANAGER_H
 
 #include "allegro/AllegroBase.hpp"
+#include <iostream>
 
 // global path to 'sprites' folder, using ONLY FORWARD SLASHES
 // in my case, this is "D:/All/Coding/C++/project/sprites/"

@@ -24,6 +24,8 @@ public:
     virtual ~AllegroBase();
 
     bool Init( int screenWidth, int screenHeight, int fps );
+    static bool InitAllegroAddons();
+
     void Destroy();
 
     virtual void Run();

@@ -4,9 +4,10 @@
 
 #include "Game.h"
 #include "../Player.h"
+#include <exception>
 
 Game::Game(): _screen_saver(ScreenSaver::Instance()), _physics_server(PhysicsServer::Instance()), _level_manager(LevelManager::Instance()) {
-    if (!Init(SCREEN_W, SCREEN_H, FPS)) return;
+    if (!Init(SCREEN_W, SCREEN_H, FPS)) throw std::exception();;
 }
 
 void Game::Fps() {

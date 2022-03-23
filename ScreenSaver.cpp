@@ -19,7 +19,7 @@ ScreenSaver::~ScreenSaver() {
 void ScreenSaver::Draw() {
     al_clear_to_color(_background_color);
 //    al_clear_to_color(al_map_rgb(255, 255, 255));
-    for (int i = 0; i < _size; i++) {
+    for (int i = _size-1; i >= 0; i--) {
         _objects[i]->Draw();
     }
 }
@@ -59,15 +59,25 @@ void ScreenSaver::Offset(Vector2 v) {
 void ScreenSaver::DrawTitleScreen() {
     al_clear_to_color(al_map_rgb(71, 83, 132));
 
-    al_draw_text(_font, al_map_rgb(255, 255, 255), SCREEN_W*.5, SCREEN_H*.5, ALLEGRO_ALIGN_CENTER, "{Press SPACE to start}");
+    al_draw_text(_font, al_map_rgb(255, 255, 255), SCREEN_W*.5, SCREEN_H*.5-51, ALLEGRO_ALIGN_CENTER, "Press [SPACE]");
+    al_draw_text(_font, al_map_rgb(255, 255, 255), SCREEN_W*.5, SCREEN_H*.5+21, ALLEGRO_ALIGN_CENTER, "to begin!");
 }
 
 void ScreenSaver::DrawEndScreen() {
     al_clear_to_color(al_map_rgb(179, 14, 8));
+
+    al_draw_text(_font, al_map_rgb(255, 255, 255), SCREEN_W*.5, SCREEN_H*.5-144, ALLEGRO_ALIGN_CENTER, "GAME OVER");
+    al_draw_text(_font, al_map_rgb(255, 255, 255), SCREEN_W*.5, SCREEN_H*.5-72, ALLEGRO_ALIGN_CENTER, "[SPACE]");
+    al_draw_text(_font, al_map_rgb(255, 255, 255), SCREEN_W*.5, SCREEN_H*.5, ALLEGRO_ALIGN_CENTER, "to restart");
+    al_draw_text(_font, al_map_rgb(255, 255, 255), SCREEN_W*.5, SCREEN_H*.5+72, ALLEGRO_ALIGN_CENTER, "[ESCAPE]");
+    al_draw_text(_font, al_map_rgb(255, 255, 255), SCREEN_W*.5, SCREEN_H*.5+144, ALLEGRO_ALIGN_CENTER, "to exit");
 }
 
 void ScreenSaver::DrawPauseMenu() {
     al_draw_filled_rectangle(0, 0, SCREEN_W, SCREEN_H, al_map_rgba(0, 0, 0, 200));
+    al_draw_text(_font, al_map_rgb(255, 255, 255), SCREEN_W*.5, SCREEN_H*.5-150, ALLEGRO_ALIGN_CENTER, "PAUSED");
+    al_draw_text(_font, al_map_rgb(255, 255, 255), SCREEN_W*.5, SCREEN_H*.5-70, ALLEGRO_ALIGN_CENTER, "[SPACE]");
+    al_draw_text(_font, al_map_rgb(255, 255, 255), SCREEN_W*.5, SCREEN_H*.5+2, ALLEGRO_ALIGN_CENTER, "to continue");
 
 }
 

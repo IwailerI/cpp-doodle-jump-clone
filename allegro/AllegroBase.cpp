@@ -20,12 +20,6 @@ AllegroBase::~AllegroBase()
 
 bool AllegroBase::Init( int screenWidth, int screenHeight, int fps )
 {
-    if( !al_init() )
-    {
-        cout << "failed to initialize allegro!" << endl;
-        return false;
-    }
-
     alTimer_ = al_create_timer( 1.0 / fps );
     if( !alTimer_ )
     {
@@ -37,30 +31,6 @@ bool AllegroBase::Init( int screenWidth, int screenHeight, int fps )
     if( !alDisplay_ )
     {
         cout << "failed to create display!" << endl;
-        return false;
-    }
-
-    if ( !al_init_primitives_addon() )
-    {
-        cout << "failed to init allegro primitives!" << endl;
-        return false;
-    }
-
-    if( !al_init_font_addon() )
-    {
-        cout << "failed to init allegro font!";
-        return false;
-    }
-
-    if( !al_init_ttf_addon() )
-    {
-        cout << "failed to init allegro ttf!";
-        return false;
-    }
-
-    if( !al_init_image_addon() )
-    {
-        cout << "failed to init allegro image!";
         return false;
     }
 
@@ -85,6 +55,40 @@ bool AllegroBase::Init( int screenWidth, int screenHeight, int fps )
 
     return true;
 
+}
+
+bool AllegroBase::InitAllegroAddons()
+{
+    if( !al_init() )
+    {
+        cout << "failed to initialize allegro!" << endl;
+        return false;
+    }
+    if ( !al_init_primitives_addon() )
+    {
+        cout << "failed to init allegro primitives!" << endl;
+        return false;
+    }
+
+    if( !al_init_font_addon() )
+    {
+        cout << "failed to init allegro font!";
+        return false;
+    }
+
+    if( !al_init_ttf_addon() )
+    {
+        cout << "failed to init allegro ttf!";
+        return false;
+    }
+
+    if( !al_init_image_addon() )
+    {
+        cout << "failed to init allegro image!";
+        return false;
+    }
+
+    return true;
 }
 
 void AllegroBase::Destroy()
