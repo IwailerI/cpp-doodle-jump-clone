@@ -25,7 +25,6 @@ void Sprite::_draw() {
                 deg2rad(_rotation),
                 0
                 );
-        al_draw_rectangle(_position.x+_sprite_offset.x, _position.y+_sprite_offset.y, _position.x+size.x+_sprite_offset.x, _position.y+size.y+_sprite_offset.y, al_map_rgb(255, 0, 0), 1);
     }
 //    Vector2 pos2 = _position + _dimensions * _scale;;
 //    al_draw_filled_rectangle(_position.x,  _position.y, pos2.x, pos2.y, _color); // NOLINT(cppcoreguidelines-narrowing-conversions)

@@ -70,9 +70,3 @@ Vector2 Player::getDimensions() const {
     //return {58.0, 10.0};
     return {70.0, 10.0};
 }
-
-void Player::_draw() {
-    Sprite::_draw();
-    al_draw_rectangle(getPosition().x, getPosition().y, getPosition().x+getDimensions().x, getPosition().y+getDimensions().y,
-                      al_map_rgb(0, 255, 0), 1);
-}

@@ -43,3 +43,11 @@
 11	1794	6697416954316334	CMakeFiles/project.dir/ResourceManager.cpp.obj	af7812afa7172ff
 9	1816	6697416954599034	CMakeFiles/project.dir/Player.cpp.obj	8bca7031a25f4ce9
 1817	1948	6697416955903516	project.exe	36cfa26c14b9cf7f
+3	1144	6697419027877882	CMakeFiles/project.dir/objects/Sprite.cpp.obj	634c3f92590305cc
+1144	1261	6697419029024824	project.exe	36cfa26c14b9cf7f
+5	1420	6697419449379971	CMakeFiles/project.dir/main.cpp.obj	317fe9668810da71
+12	1480	6697419449980150	CMakeFiles/project.dir/Player.cpp.obj	8bca7031a25f4ce9
+9	1518	6697419450406682	CMakeFiles/project.dir/allegro/Game.cpp.obj	9a31e3fd5293d3a5
+1518	1654	6697419451706211	project.exe	36cfa26c14b9cf7f
+3	1284	6697419782525173	CMakeFiles/project.dir/ScreenSaver.cpp.obj	527faca484c3423c
+1284	1413	6697419783780053	project.exe	36cfa26c14b9cf7f

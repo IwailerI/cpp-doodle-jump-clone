@@ -20,8 +20,6 @@ protected:
     Vector2 _velocity;
 
     void _update() override; // also handles input
-    void _draw() override;
-    // TODO: override _draw(), to play custom animations
 
 public:
     explicit Player(Vector2 position);

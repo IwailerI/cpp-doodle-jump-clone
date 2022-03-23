@@ -4,7 +4,7 @@
 
 #include "ScreenSaver.h"
 
-ScreenSaver::ScreenSaver(): _size(0), _background_color(al_map_rgb(0, 0, 0)), _offset(Vector2(0, 0)) {
+ScreenSaver::ScreenSaver(): _size(0), _background_color(al_map_rgb(255, 255, 255)), _offset(Vector2(0, 0)) {
     memset(_objects, 0, sizeof(_objects));
     _font = ResourceManager::Instance().font;
 }
