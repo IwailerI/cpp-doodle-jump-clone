@@ -61,7 +61,7 @@ void Game::Draw() {
         _screen_saver.DrawPauseMenu();
     } else if (_state == TITLE) {
         _screen_saver.DrawTitleScreen();
-    } else if (_state == END) {
+    } else {
         _screen_saver.DrawEndScreen();
     }
 }

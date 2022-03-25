@@ -20,7 +20,7 @@ ResourceManager::ResourceManager() {
     sprite_platform = al_load_bitmap((FILEPATH+"platform.png").c_str());
 
     // Enemies
-    //
+    sprite_enemy_simple = al_load_bitmap((FILEPATH+"enemy_simple.png").c_str());
 
     // Fonts
     font = al_load_ttf_font((FILEPATH+"font.ttf").c_str(), 72, 0);

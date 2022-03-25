@@ -25,9 +25,9 @@ void Platform::_suicide() {
         delete this;
 }
 
-Platform::Platform(Vector2 position):
-    Sprite(position, ResourceManager::Instance().sprite_platform)
-    {
+Platform::Platform(Vector2 position): Sprite()
+{
+    _sprite = ResourceManager::Instance().sprite_platform;
     _oneway = true;
     _player_interaction = Bounce;
     _position = position;

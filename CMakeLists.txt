@@ -13,12 +13,12 @@ add_executable(project
         ScreenSaver.cpp ScreenSaver.h
         objects/GameObject.cpp objects/GameObject.h
         objects/Transform.cpp objects/Transform.h
-        objects/simpleShapes/ColorRect.cpp objects/simpleShapes/ColorRect.h
         objects/Sprite.cpp objects/Sprite.h
         objects/Collider.cpp objects/Collider.h
         Player.cpp Player.h
         PhysicsServer.cpp PhysicsServer.h
         objects/platforms/Platform.cpp objects/platforms/Platform.h
+        objects/enemies/Enemy.h objects/enemies/Enemy.cpp
         LevelManager.cpp LevelManager.h
         ResourceManager.cpp ResourceManager.h
         )

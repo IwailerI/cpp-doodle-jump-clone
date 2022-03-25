@@ -29,8 +29,13 @@ void Player::_update() {
 }
 
 void Player::onCollision(Collider *col) {
-    if (col->getPlayerInteraction() == Bounce) {
-        _velocity.y = -JUMP_VELOCITY;
+    switch (col->getPlayerInteraction()) {
+        case Bounce:
+            _velocity.y = -JUMP_VELOCITY;
+            break;
+        case Kill:
+            die();
+            break;
     }
 }
 
@@ -47,6 +52,7 @@ Player::Player(Vector2 position) {
     _velocity = Vector2(0, 0);
     _scale = Vector2(1, 1);
     _sprite = ResourceManager::Instance().sprite_player_right;
+    _player_interaction = IsPlayer;
 
     _sprite_offset.y = -(GetImageSize().y-10);
     _sprite_offset.x = -(GetImageSize().x - getDimensions().x) * .5;
