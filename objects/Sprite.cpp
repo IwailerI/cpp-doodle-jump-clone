@@ -24,7 +24,7 @@ void Sprite::_draw() {
                 _scale.x, _scale.y,
                 deg2rad(_rotation),
                 0
-                );
+                );\
     }
 //    Vector2 pos2 = _position + _dimensions * _scale;;
 //    al_draw_filled_rectangle(_position.x,  _position.y, pos2.x, pos2.y, _color); // NOLINT(cppcoreguidelines-narrowing-conversions)
