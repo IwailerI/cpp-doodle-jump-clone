@@ -8,6 +8,17 @@
 void Player::_update() {
     _velocity.y += GRAVITY;
 
+    if (_is_dead) {
+        _position += _velocity;
+
+        if (isCompletlyDead()) {
+            setVisible(false);
+            setSleeping(true);
+        }
+
+        return;
+    }
+
     double input = is_right_held - is_left_held;;
 
     if (input != 0)
@@ -29,6 +40,7 @@ void Player::_update() {
 }
 
 void Player::onCollision(Collider *col) {
+    if (isDead()) return;
     switch (col->getPlayerInteraction()) {
         case Bounce:
             _velocity.y = -JUMP_VELOCITY;
@@ -64,8 +76,7 @@ Vector2 Player::getColliderVelocity() const {
 
 void Player::die() {
     std::cout << "Player is ded." << std::endl;
-    setSleeping(true);
-    setVisible(false);
+    _is_dead = true;
 }
 
 Vector2 Player::getPosition() const {

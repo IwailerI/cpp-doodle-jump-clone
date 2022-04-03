@@ -5,12 +5,10 @@
 #ifndef PROJECT_RESOURCEMANAGER_H
 #define PROJECT_RESOURCEMANAGER_H
 
-#include "allegro/AllegroBase.hpp"
+#include <cstdlib>
 #include <iostream>
 
-// global path to 'sprites' folder, using ONLY FORWARD SLASHES
-// in my case, this is "D:/All/Coding/C++/project/sprites/"
-const std::string FILEPATH = "D:/All/Coding/C++/project/sprites/";
+#include "allegro/AllegroBase.hpp"
 
 class ResourceManager {
 private:
@@ -32,6 +30,11 @@ public:
     ALLEGRO_BITMAP *sprite_platform;
 
 };
+
+// global path to 'sprites' folder, using ONLY FORWARD SLASHES
+// in my case, this is "D:/All/Coding/C++/project/sprites/"
+// on progmeistars courses "D:/Andrejs Pirozenoks/Lesson 8/DoodleJump/sprites/"
+const std::string FILEPATH = "D:/All/Coding/C++/project/sprites/";
 
 
 #endif //PROJECT_RESOURCEMANAGER_H

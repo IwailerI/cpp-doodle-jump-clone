@@ -20,8 +20,8 @@ void Game::Fps() {
         }
 
         // check for players death
-        if (_player->isSleeping() && !_player->isVisible()) {
-            _state = _state = END;
+        if (_player->isCompletlyDead()) {
+            _state = END;
             return;
         }
 
@@ -33,6 +33,8 @@ void Game::Fps() {
         // unpause
         if (IsPressed(ALLEGRO_KEY_SPACE))
            _state = INGAME;
+        if (IsPressed(ALLEGRO_KEY_E))
+            Exit();
 
     } else if (_state == TITLE) {
         if (IsPressed(ALLEGRO_KEY_SPACE)) {

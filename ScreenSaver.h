@@ -10,6 +10,9 @@
 #include "objects/platforms/Platform.h"
 #include "PhysicsServer.h"
 
+#include <sstream>
+#include <string>
+
 const int MAX_OBJECTS = 200;
 
 // Singleton
@@ -21,8 +24,13 @@ protected:
     GameObject *_objects[MAX_OBJECTS]{};
     int _size;
     ALLEGRO_COLOR _background_color;
+    ALLEGRO_COLOR _grid_color;
 
     Vector2 _offset;
+
+    double _grid_pos = 0.0;
+
+    double _score = 0.0;
 
     ALLEGRO_FONT *_font;
 
