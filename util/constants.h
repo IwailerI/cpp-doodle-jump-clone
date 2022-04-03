@@ -26,6 +26,7 @@ const double MAX_ENEMY_DISTANCE = 7500;
 const double MIN_ENEMY_DISTANCE = 1000;
 const double DISTANCE_RAMPUP = SCREEN_H*25;
 const double OBJECT_SPAWN_TRESHOLD = -10;
-const double FAKE_PLATFORM_CHANCE = .1;
+const double FAKE_PLATFORM_CHANCE = .25;
+const double ASSUMED_PLATFORM_HEIGHT = 30;
 
 #endif //PROJECT_CONSTANTS_H

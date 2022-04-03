@@ -24,23 +24,21 @@ double LevelManager::getMinDistance() const {
 }
 
 void LevelManager::_genNextPlatform() {
-    Platform *p = nullptr;
-    if (util::randf(0, 1) <= FAKE_PLATFORM_CHANCE) {
-        // we are generating a fake platform
-        _next_distance = util::clamp(_next_distance, getMinDistance()*2, MAX_PLATFORM_DISTANCE-getMinDistance());
+    Platform *p;
 
-        p = PlatformFactory::GetRandomPlatform(_last_platform+_next_distance, true);
-
-        _next_distance = util::randf(getMinDistance(), MAX_PLATFORM_DISTANCE-_next_distance);
-
-    } else {
-        // we are generating a normal platform
-        _last_platform -= _next_distance;
-
-        p = PlatformFactory::GetRandomPlatform(_last_platform, false);
-
-        _next_distance = util::randf(getMinDistance(), MAX_PLATFORM_DISTANCE);
+    if (util::randf(0, 1) <= FAKE_PLATFORM_CHANCE && _next_distance >= MIN_PLATFORM_DISTANCE+ASSUMED_PLATFORM_HEIGHT) {
+        // gen a fake platform inbeetween 2 normal
+        double y = util::randf(_last_platform-MIN_PLATFORM_DISTANCE, _last_platform-_next_distance+ASSUMED_PLATFORM_HEIGHT);
+        p = PlatformFactory::GetRandomPlatform(y, true);
+        ScreenSaver::Instance().Add(p);
+        PhysicsServer::Instance().Add(p);
     }
+
+    _last_platform -= _next_distance;
+
+    p = PlatformFactory::GetRandomPlatform(_last_platform, false);
+
+    _next_distance = util::randf(getMinDistance(), MAX_PLATFORM_DISTANCE);
 
     ScreenSaver::Instance().Add(p);
     PhysicsServer::Instance().Add(p);
