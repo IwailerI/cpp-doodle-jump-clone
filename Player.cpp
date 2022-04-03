@@ -11,7 +11,7 @@ void Player::_update() {
     if (_is_dead) {
         _position += _velocity;
 
-        if (isCompletlyDead()) {
+        if (isCompletelyDead()) {
             setVisible(false);
             setSleeping(true);
         }
@@ -43,7 +43,15 @@ void Player::onCollision(Collider *col) {
     if (isDead()) return;
     switch (col->getPlayerInteraction()) {
         case Bounce:
-            _velocity.y = -JUMP_VELOCITY;
+            if (_velocity.y > 0 && isColliding(col, true))
+                _velocity.y = -JUMP_VELOCITY;
+            break;
+        case KillBounce:
+            if (_velocity.y > 0 && isColliding(col, true)) {
+                _velocity.y = -JUMP_VELOCITY;
+                col->onCollision(nullptr); // make enemy kill itself
+            } else
+                die();
             break;
         case Kill:
             die();
@@ -70,10 +78,6 @@ Player::Player(Vector2 position) {
     _sprite_offset.x = -(GetImageSize().x - getDimensions().x) * .5;
 }
 
-Vector2 Player::getColliderVelocity() const {
-    return _velocity;
-}
-
 void Player::die() {
     std::cout << "Player is ded." << std::endl;
     _is_dead = true;
@@ -83,7 +87,10 @@ Vector2 Player::getPosition() const {
     return Sprite::getPosition();
 }
 
-Vector2 Player::getDimensions() const {
+Vector2 Player::_getDimensions(bool alternative) const {
     //return {58.0, 10.0};
-    return {70.0, 10.0};
+    if (alternative)
+        return {70.0, 10.0};
+    else
+        return GetImageSize();
 }

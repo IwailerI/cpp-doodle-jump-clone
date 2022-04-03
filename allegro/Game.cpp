@@ -20,7 +20,7 @@ void Game::Fps() {
         }
 
         // check for players death
-        if (_player->isCompletlyDead()) {
+        if (_player->isCompletelyDead()) {
             _state = END;
             return;
         }

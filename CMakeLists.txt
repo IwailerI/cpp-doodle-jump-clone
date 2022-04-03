@@ -6,20 +6,28 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(C:/Program\ Files/JetBrains/CLion\ 2021.3.2/bin/mingw)
 
 add_executable(project
+
         main.cpp
+
         allegro/AllegroBase.hpp allegro/AllegroBase.cpp
-        allegro/Game.cpp allegro/Game.h
         util/Vector2.cpp util/Vector2.h
+
+        allegro/Game.cpp allegro/Game.h
+        Player.cpp Player.h
+
         ScreenSaver.cpp ScreenSaver.h
+        LevelManager.cpp LevelManager.h
+        PhysicsServer.cpp PhysicsServer.h
+        ResourceManager.cpp ResourceManager.h
+
         objects/GameObject.cpp objects/GameObject.h
         objects/Sprite.cpp objects/Sprite.h
         objects/Collider.cpp objects/Collider.h
-        Player.cpp Player.h
-        PhysicsServer.cpp PhysicsServer.h
+
         objects/platforms/Platform.cpp objects/platforms/Platform.h
+
         objects/enemies/Enemy.h objects/enemies/Enemy.cpp
-        LevelManager.cpp LevelManager.h
-        ResourceManager.cpp ResourceManager.h
+
         )
 
 target_link_libraries(project

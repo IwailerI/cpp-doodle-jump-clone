@@ -11,12 +11,13 @@ void PhysicsServer::RegisterPlayer(Collider *player) {
 void PhysicsServer::Update() {
     if (_player == nullptr) return;
     for (int i = 0; i < _size; ++i) {
+        // delete if necessary
         if (_bodies[i]->getPhysicsDeletionMark() != 0) {
             remove(i, _bodies[i]->getPhysicsDeletionMark() - 1);
             i--;
             continue;
         }
-        if (_player->isColliding(_bodies[i])) {
+        if (_player->isColliding(_bodies[i])){
             _player->onCollision(_bodies[i]);
             _bodies[i]->onCollision(_player);
         }

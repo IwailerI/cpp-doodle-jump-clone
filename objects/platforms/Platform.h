@@ -17,10 +17,12 @@ public:
     ~Platform() override = default;
 
     Vector2 getPosition() const override;
-    Vector2 getDimensions() const override;
+
     void onCollision(Collider *col) override;
 
 protected:
+    Vector2 _getDimensions(bool alternative) const override;
+
     void _update() override;
 
     void _suicide();

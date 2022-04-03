@@ -21,6 +21,8 @@ protected:
     void _update() override; // also handles input
     bool _is_dead = false;
 
+    Vector2 _getDimensions(bool alternative) const override;
+
 public:
     explicit Player(Vector2 position);
 
@@ -29,16 +31,12 @@ public:
     const Vector2 &getVelocity() const;
     void setVelocity(const Vector2 &velocity);
 
-    Vector2 getColliderVelocity() const override;
-
     void die();
 
     Vector2 getPosition() const override;
 
-    Vector2 getDimensions() const override;
-
-    bool isDead() { return _is_dead; }
-    bool isCompletlyDead() {return isDead() && _position.y > SCREEN_H * 1.3;}
+    bool isDead() const { return _is_dead; }
+    bool isCompletelyDead() {return isDead() && _position.y > SCREEN_H * 1.3;}
 
     bool is_right_held = false;
     bool is_left_held = false;

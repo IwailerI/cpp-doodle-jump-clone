@@ -10,9 +10,12 @@
 #include "../../ResourceManager.h"
 
 class Enemy: public Sprite, public Collider {
+protected:
+    Vector2 _getDimensions(bool alternative) const override;
+
 public:
     Vector2 getPosition() const override;
-    Vector2 getDimensions() const override;
+
     void onCollision(Collider *col) override;
 
     explicit Enemy(Vector2 position);

@@ -63,13 +63,6 @@ build CMakeFiles/project.dir/allegro/AllegroBase.cpp.obj: CXX_COMPILER__project_
   OBJECT_DIR = CMakeFiles\project.dir
   OBJECT_FILE_DIR = CMakeFiles\project.dir\allegro
 
-build CMakeFiles/project.dir/allegro/Game.cpp.obj: CXX_COMPILER__project_Debug D$:/All/Coding/C++/project/allegro/Game.cpp || cmake_object_order_depends_target_project
-  DEP_FILE = CMakeFiles\project.dir\allegro\Game.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2021.3.2/bin/mingw"
-  OBJECT_DIR = CMakeFiles\project.dir
-  OBJECT_FILE_DIR = CMakeFiles\project.dir\allegro
-
 build CMakeFiles/project.dir/util/Vector2.cpp.obj: CXX_COMPILER__project_Debug D$:/All/Coding/C++/project/util/Vector2.cpp || cmake_object_order_depends_target_project
   DEP_FILE = CMakeFiles\project.dir\util\Vector2.cpp.obj.d
   FLAGS = -g -std=gnu++14
@@ -77,8 +70,43 @@ build CMakeFiles/project.dir/util/Vector2.cpp.obj: CXX_COMPILER__project_Debug D
   OBJECT_DIR = CMakeFiles\project.dir
   OBJECT_FILE_DIR = CMakeFiles\project.dir\util
 
+build CMakeFiles/project.dir/allegro/Game.cpp.obj: CXX_COMPILER__project_Debug D$:/All/Coding/C++/project/allegro/Game.cpp || cmake_object_order_depends_target_project
+  DEP_FILE = CMakeFiles\project.dir\allegro\Game.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2021.3.2/bin/mingw"
+  OBJECT_DIR = CMakeFiles\project.dir
+  OBJECT_FILE_DIR = CMakeFiles\project.dir\allegro
+
+build CMakeFiles/project.dir/Player.cpp.obj: CXX_COMPILER__project_Debug D$:/All/Coding/C++/project/Player.cpp || cmake_object_order_depends_target_project
+  DEP_FILE = CMakeFiles\project.dir\Player.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2021.3.2/bin/mingw"
+  OBJECT_DIR = CMakeFiles\project.dir
+  OBJECT_FILE_DIR = CMakeFiles\project.dir
+
 build CMakeFiles/project.dir/ScreenSaver.cpp.obj: CXX_COMPILER__project_Debug D$:/All/Coding/C++/project/ScreenSaver.cpp || cmake_object_order_depends_target_project
   DEP_FILE = CMakeFiles\project.dir\ScreenSaver.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2021.3.2/bin/mingw"
+  OBJECT_DIR = CMakeFiles\project.dir
+  OBJECT_FILE_DIR = CMakeFiles\project.dir
+
+build CMakeFiles/project.dir/LevelManager.cpp.obj: CXX_COMPILER__project_Debug D$:/All/Coding/C++/project/LevelManager.cpp || cmake_object_order_depends_target_project
+  DEP_FILE = CMakeFiles\project.dir\LevelManager.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2021.3.2/bin/mingw"
+  OBJECT_DIR = CMakeFiles\project.dir
+  OBJECT_FILE_DIR = CMakeFiles\project.dir
+
+build CMakeFiles/project.dir/PhysicsServer.cpp.obj: CXX_COMPILER__project_Debug D$:/All/Coding/C++/project/PhysicsServer.cpp || cmake_object_order_depends_target_project
+  DEP_FILE = CMakeFiles\project.dir\PhysicsServer.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2021.3.2/bin/mingw"
+  OBJECT_DIR = CMakeFiles\project.dir
+  OBJECT_FILE_DIR = CMakeFiles\project.dir
+
+build CMakeFiles/project.dir/ResourceManager.cpp.obj: CXX_COMPILER__project_Debug D$:/All/Coding/C++/project/ResourceManager.cpp || cmake_object_order_depends_target_project
+  DEP_FILE = CMakeFiles\project.dir\ResourceManager.cpp.obj.d
   FLAGS = -g -std=gnu++14
   INCLUDES = -I"C:/Program Files/JetBrains/CLion 2021.3.2/bin/mingw"
   OBJECT_DIR = CMakeFiles\project.dir
@@ -105,20 +133,6 @@ build CMakeFiles/project.dir/objects/Collider.cpp.obj: CXX_COMPILER__project_Deb
   OBJECT_DIR = CMakeFiles\project.dir
   OBJECT_FILE_DIR = CMakeFiles\project.dir\objects
 
-build CMakeFiles/project.dir/Player.cpp.obj: CXX_COMPILER__project_Debug D$:/All/Coding/C++/project/Player.cpp || cmake_object_order_depends_target_project
-  DEP_FILE = CMakeFiles\project.dir\Player.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2021.3.2/bin/mingw"
-  OBJECT_DIR = CMakeFiles\project.dir
-  OBJECT_FILE_DIR = CMakeFiles\project.dir
-
-build CMakeFiles/project.dir/PhysicsServer.cpp.obj: CXX_COMPILER__project_Debug D$:/All/Coding/C++/project/PhysicsServer.cpp || cmake_object_order_depends_target_project
-  DEP_FILE = CMakeFiles\project.dir\PhysicsServer.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2021.3.2/bin/mingw"
-  OBJECT_DIR = CMakeFiles\project.dir
-  OBJECT_FILE_DIR = CMakeFiles\project.dir
-
 build CMakeFiles/project.dir/objects/platforms/Platform.cpp.obj: CXX_COMPILER__project_Debug D$:/All/Coding/C++/project/objects/platforms/Platform.cpp || cmake_object_order_depends_target_project
   DEP_FILE = CMakeFiles\project.dir\objects\platforms\Platform.cpp.obj.d
   FLAGS = -g -std=gnu++14
@@ -133,20 +147,6 @@ build CMakeFiles/project.dir/objects/enemies/Enemy.cpp.obj: CXX_COMPILER__projec
   OBJECT_DIR = CMakeFiles\project.dir
   OBJECT_FILE_DIR = CMakeFiles\project.dir\objects\enemies
 
-build CMakeFiles/project.dir/LevelManager.cpp.obj: CXX_COMPILER__project_Debug D$:/All/Coding/C++/project/LevelManager.cpp || cmake_object_order_depends_target_project
-  DEP_FILE = CMakeFiles\project.dir\LevelManager.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2021.3.2/bin/mingw"
-  OBJECT_DIR = CMakeFiles\project.dir
-  OBJECT_FILE_DIR = CMakeFiles\project.dir
-
-build CMakeFiles/project.dir/ResourceManager.cpp.obj: CXX_COMPILER__project_Debug D$:/All/Coding/C++/project/ResourceManager.cpp || cmake_object_order_depends_target_project
-  DEP_FILE = CMakeFiles\project.dir\ResourceManager.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2021.3.2/bin/mingw"
-  OBJECT_DIR = CMakeFiles\project.dir
-  OBJECT_FILE_DIR = CMakeFiles\project.dir
-
 
 # =============================================================================
 # Link build statements for EXECUTABLE target project
@@ -155,7 +155,7 @@ build CMakeFiles/project.dir/ResourceManager.cpp.obj: CXX_COMPILER__project_Debu
 #############################################
 # Link the executable project.exe
 
-build project.exe: CXX_EXECUTABLE_LINKER__project_Debug CMakeFiles/project.dir/main.cpp.obj CMakeFiles/project.dir/allegro/AllegroBase.cpp.obj CMakeFiles/project.dir/allegro/Game.cpp.obj CMakeFiles/project.dir/util/Vector2.cpp.obj CMakeFiles/project.dir/ScreenSaver.cpp.obj CMakeFiles/project.dir/objects/GameObject.cpp.obj CMakeFiles/project.dir/objects/Sprite.cpp.obj CMakeFiles/project.dir/objects/Collider.cpp.obj CMakeFiles/project.dir/Player.cpp.obj CMakeFiles/project.dir/PhysicsServer.cpp.obj CMakeFiles/project.dir/objects/platforms/Platform.cpp.obj CMakeFiles/project.dir/objects/enemies/Enemy.cpp.obj CMakeFiles/project.dir/LevelManager.cpp.obj CMakeFiles/project.dir/ResourceManager.cpp.obj
+build project.exe: CXX_EXECUTABLE_LINKER__project_Debug CMakeFiles/project.dir/main.cpp.obj CMakeFiles/project.dir/allegro/AllegroBase.cpp.obj CMakeFiles/project.dir/util/Vector2.cpp.obj CMakeFiles/project.dir/allegro/Game.cpp.obj CMakeFiles/project.dir/Player.cpp.obj CMakeFiles/project.dir/ScreenSaver.cpp.obj CMakeFiles/project.dir/LevelManager.cpp.obj CMakeFiles/project.dir/PhysicsServer.cpp.obj CMakeFiles/project.dir/ResourceManager.cpp.obj CMakeFiles/project.dir/objects/GameObject.cpp.obj CMakeFiles/project.dir/objects/Sprite.cpp.obj CMakeFiles/project.dir/objects/Collider.cpp.obj CMakeFiles/project.dir/objects/platforms/Platform.cpp.obj CMakeFiles/project.dir/objects/enemies/Enemy.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lallegro  -lallegro_primitives  -lallegro_image  -lallegro_font  -lallegro_ttf  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\project.dir

@@ -28,7 +28,6 @@ void Platform::_suicide() {
 Platform::Platform(Vector2 position): Sprite()
 {
     _sprite = ResourceManager::Instance().sprite_platform;
-    _oneway = true;
     _player_interaction = Bounce;
     _position = position;
 }
@@ -37,10 +36,10 @@ Vector2 Platform::getPosition() const {
     return _position;
 }
 
-Vector2 Platform::getDimensions() const {
-    return GetImageSize();
-}
-
 void Platform::onCollision(Collider *col) {
     // do nothing
+}
+
+Vector2 Platform::_getDimensions(bool alternative) const {
+    return GetImageSize();
 }

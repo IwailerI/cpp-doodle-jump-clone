@@ -15,7 +15,7 @@ Vector2 Enemy::getPosition() const {
     return Sprite::getPosition();
 }
 
-Vector2 Enemy::getDimensions() const {
+Vector2 Enemy::_getDimensions(bool alternative) const {
     return GetImageSize();
 }
 
