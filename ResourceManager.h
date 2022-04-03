@@ -10,6 +10,13 @@
 
 #include "allegro/AllegroBase.hpp"
 
+typedef ALLEGRO_BITMAP* img;
+
+// global path to 'sprites' folder, using ONLY FORWARD SLASHES
+// in my case, this is "D:/All/Coding/C++/project/sprites/"
+// on progmeistars courses "D:/Andrejs Pirozenoks/Lesson 8/DoodleJump/sprites/"
+const std::string FILEPATH = "D:/All/Coding/C++/project/sprites/";
+
 class ResourceManager {
 private:
     ResourceManager();
@@ -22,22 +29,17 @@ public:
 
     ALLEGRO_FONT *font;
 
-    ALLEGRO_BITMAP *sprite_player_right;
-    ALLEGRO_BITMAP *sprite_player_left;
-    ALLEGRO_BITMAP *sprite_player_dead;
+    img sprite_player_right;
+    img sprite_player_left;
+    img sprite_player_dead;
 
-    ALLEGRO_BITMAP *sprite_enemy_simple;
-    ALLEGRO_BITMAP *sprite_enemy_simple_victory;
-    ALLEGRO_BITMAP *sprite_enemy_simple_dead;
+    img sprite_enemy_simple;
+    img sprite_enemy_simple_victory;
+    img sprite_enemy_simple_dead;
 
-    ALLEGRO_BITMAP *sprite_platform;
-
+    img sprite_platform;
+    img sprite_platform_fake;
+    img sprite_platform_fake_broken;
 };
-
-// global path to 'sprites' folder, using ONLY FORWARD SLASHES
-// in my case, this is "D:/All/Coding/C++/project/sprites/"
-// on progmeistars courses "D:/Andrejs Pirozenoks/Lesson 8/DoodleJump/sprites/"
-const std::string FILEPATH = "D:/All/Coding/C++/project/sprites/";
-
 
 #endif //PROJECT_RESOURCEMANAGER_H

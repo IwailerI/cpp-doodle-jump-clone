@@ -52,9 +52,15 @@ void Player::onCollision(Collider *col) {
             } else
                 die();
             break;
+        case Break:
+            if (_velocity.y > 0 && isColliding(col, true)) {
+                col->onCollision(nullptr); // make platform break
+            }
+            break;
         case Kill:
             die();
             break;
+
     }
 }
 

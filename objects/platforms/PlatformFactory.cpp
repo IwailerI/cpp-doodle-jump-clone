@@ -8,7 +8,7 @@ Platform *PlatformFactory::_random_platform(bool fake) {
     if (fake) {
         switch (std::rand()%1) {
             case 0:
-                return new Platform(Vector2()); // TODO replace with actual fake platform
+                return new FakePlatform(Vector2());
                 break;
         }
     } else {

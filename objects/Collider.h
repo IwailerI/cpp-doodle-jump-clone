@@ -7,7 +7,7 @@
 
 #include "../util/Vector2.h"
 
-enum PlayerInteraction {IsPlayer, Ignore, Bounce, Kill, KillBounce, Boost};
+enum PlayerInteraction {IsPlayer, Ignore, Bounce, Kill, KillBounce, Boost, Break};
 
 class Collider {
 protected:

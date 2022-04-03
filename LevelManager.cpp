@@ -25,7 +25,7 @@ double LevelManager::getMinDistance() const {
 
 void LevelManager::_genNextPlatform() {
     Platform *p = nullptr;
-    if (util::randf(0, 1) <= FAKE_PLATFORM_CHANCE && 0) { // TODO remove && false and make actual fake platform
+    if (util::randf(0, 1) <= FAKE_PLATFORM_CHANCE) {
         // we are generating a fake platform
         _next_distance = util::clamp(_next_distance, getMinDistance()*2, MAX_PLATFORM_DISTANCE-getMinDistance());
 

@@ -8,9 +8,12 @@
 
 ResourceManager::ResourceManager() {
     if (!al_change_directory(FILEPATH.c_str())) {
-        std::cout << "Invalid filepath for resource directories" << std::endl;
+        std::cout << "Invalid filepath for resource directory\n";
+        std::cout << "Check ResourceManager.h constant FILEPATH" << std::endl;
         exit(1);
     }
+
+
 
     // Player
     sprite_player_right = al_load_bitmap("player_look_right.png");
@@ -31,12 +34,28 @@ ResourceManager::ResourceManager() {
         exit(1);
     }
 
+
+
     // Platforms
     sprite_platform = al_load_bitmap("platform.png");
     if (sprite_platform == nullptr) {
         std::cout << "Unable to find platform.png" << std::endl;
         exit(1);
     }
+
+    sprite_platform_fake = al_load_bitmap("fake_platform.png");
+    if (sprite_platform_fake == nullptr) {
+        std::cout << "Unable to find fake_platform.png" << std::endl;
+        exit(1);
+    }
+
+    sprite_platform_fake_broken = al_load_bitmap("fake_platform_broken.png");
+    if (sprite_platform_fake_broken == nullptr) {
+        std::cout << "Unable to find fake_platform_broken.png" << std::endl;
+        exit(1);
+    }
+
+
 
     // Enemies
     sprite_enemy_simple = al_load_bitmap("enemy_simple.png");

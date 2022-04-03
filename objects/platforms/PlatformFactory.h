@@ -6,6 +6,8 @@
 #define PROJECT_PLATFORMFACTORY_H
 
 #include "Platform.h"
+#include "FakePlatform.h"
+
 #include "../../util/utils.h"
 
 class PlatformFactory {

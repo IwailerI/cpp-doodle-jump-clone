@@ -6,12 +6,7 @@
 #define PROJECT_SCREENSAVER_H
 
 #include "allegro/AllegroBase.hpp"
-#include "objects/GameObject.h"
 #include "objects/platforms/Platform.h"
-#include "PhysicsServer.h"
-
-#include <sstream>
-#include <string>
 
 const int MAX_OBJECTS = 200;
 

@@ -29,6 +29,7 @@ add_executable(project
 
         objects/platforms/PlatformFactory.h objects/platforms/PlatformFactory.cpp
         objects/platforms/Platform.cpp objects/platforms/Platform.h
+        objects/platforms/FakePlatform.cpp objects/platforms/FakePlatform.h
 
         objects/enemies/EnemyFactory.h objects/enemies/EnemyFactory.cpp
         objects/enemies/Enemy.h objects/enemies/Enemy.cpp
