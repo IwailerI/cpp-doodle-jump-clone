@@ -70,3 +70,13 @@
 1347	1467	6706764428128365	project.exe	f8e38e35af8bea59
 3	1146	6706778021719299	CMakeFiles/project.dir/allegro/Game.cpp.obj	9a31e3fd5293d3a5
 1146	1250	6706778022750980	project.exe	f8e38e35af8bea59
+14	2174	6706782655454396	CMakeFiles/project.dir/objects/platforms/Platform.cpp.obj	47444d7dfb416127
+10	2185	6706782655613100	CMakeFiles/project.dir/Player.cpp.obj	8bca7031a25f4ce9
+5	2202	6706782655786701	CMakeFiles/project.dir/objects/GameObject.cpp.obj	ff1a6bf830a0d6bc
+7	2226	6706782656029744	CMakeFiles/project.dir/main.cpp.obj	317fe9668810da71
+6	2270	6706782656466219	CMakeFiles/project.dir/allegro/Game.cpp.obj	9a31e3fd5293d3a5
+3	2312	6706782656892784	CMakeFiles/project.dir/ScreenSaver.cpp.obj	527faca484c3423c
+16	2313	6706782656902701	CMakeFiles/project.dir/objects/enemies/enemy.cpp.obj	3963de5ec2124666
+9	2313	6706782656902701	CMakeFiles/project.dir/objects/Sprite.cpp.obj	634c3f92590305cc
+12	2321	6706782656996942	CMakeFiles/project.dir/LevelManager.cpp.obj	eb5c673984a74a82
+2321	2456	6706782658316627	project.exe	f8e38e35af8bea59

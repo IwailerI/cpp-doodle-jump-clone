@@ -9,14 +9,18 @@
 #include "Transform.h"
 #include "../allegro/AllegroBase.hpp"
 
-// game object is something that can be placed in the world and drawn
-class GameObject: public Transform {
+// Game object is something that can be placed in the world and drawn and updated (optionally)
+class GameObject {
 protected:
+    Vector2 _position = Vector2(0.0, 0.0);
+    double _rotation = 0.0;
+    Vector2 _scale = Vector2(1.0, 1.0);
+
     bool _visible = true;
     bool _sleeping = false;
 
     int _object_id = -1;
-    int _marked_for_object_deletion = 0; // 0 - no, 1 - yes, delete only from list, 2 - yes, also clear memmory
+    int _marked_for_object_deletion = 0; // 0 - no, 1 - yes, delete only from list, 2 - yes, also clear memory
 
     virtual void _draw() = 0;
     virtual void _update() = 0;
@@ -24,7 +28,18 @@ public:
     // constructors/destructors
     GameObject(const Vector2 &position, double rotation, const Vector2 &scale);
     GameObject();
-    ~GameObject() override = default;
+    virtual ~GameObject() = default;
+
+    Vector2 getPosition() const;
+    void setPosition(const Vector2 &position);
+    void Offset(const Vector2 &vec);
+
+    virtual double getRotation() const;
+
+    virtual void setRotation(double rotation);
+
+    Vector2 getScale() const;
+    void setScale(const Vector2 &scale);
 
     // setters/getters
     bool isVisible() const;
