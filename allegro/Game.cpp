@@ -44,9 +44,10 @@ void Game::Fps() {
         }
     } else if (_state == END) {
         if (IsPressed(ALLEGRO_KEY_SPACE)) {
-            _physics_server.Clear();
-            _screen_saver.Clear();
+            std::cout << "restarted" << std::endl;
             _level_manager.Reset();
+            _physics_server.Clear(true);
+            _screen_saver.Clear(false);
             _start_game();
             _state = INGAME;
         } else if (IsPressed(ALLEGRO_KEY_ESCAPE)) {
@@ -73,7 +74,7 @@ void Game::Run() {
 }
 
 void Game::_start_game() {
-    _player = new Player(Vector2(150, 700));
+    _player = new Player(Vector2(150, 600));
     _screen_saver.Add(_player);
     _physics_server.RegisterPlayer(_player);
     _level_manager.RegisterPlayer(_player);

@@ -11,17 +11,19 @@
 #include "ResourceManager.h"
 #include <iostream> // debug TODO remove and  make normal death sequance
 
-const double GRAVITY = 1.5;
-const double JUMP_VELOCITY = 30;
-const double MOVEMENT_SPEED = 10;
+#include "util/constants.h"
 
 class Player: public Sprite, public Collider {
 protected:
     Vector2 _velocity;
     void _update() override; // also handles input
+//    void _draw() override;
+
     bool _is_dead = false;
 
+
     Vector2 _getDimensions(bool alternative) const override;
+    Vector2 _getColliderPosition(bool alternative) const override;
 
 public:
     explicit Player(Vector2 position);
@@ -32,8 +34,6 @@ public:
     void setVelocity(const Vector2 &velocity);
 
     void die();
-
-    Vector2 getPosition() const override;
 
     bool isDead() const { return _is_dead; }
     bool isCompletelyDead() {return isDead() && _position.y > SCREEN_H * 1.3;}

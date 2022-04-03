@@ -11,6 +11,7 @@ add_executable(project
 
         allegro/AllegroBase.hpp allegro/AllegroBase.cpp
         util/Vector2.cpp util/Vector2.h
+        util/constants.h
 
         allegro/Game.cpp allegro/Game.h
         Player.cpp Player.h

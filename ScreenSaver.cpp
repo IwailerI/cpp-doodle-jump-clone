@@ -65,13 +65,6 @@ int ScreenSaver::Add(GameObject *s) {
     return _size-1;
 }
 
-void ScreenSaver::_remove(int i, bool clear) {
-    if (clear)
-        delete _objects[i];
-    _objects[i] = _objects[--_size];
-    _objects[_size] = nullptr;
-}
-
 // Queses offset to be added on next physics frame
 void ScreenSaver::Offset(Vector2 v) {
     _offset += v;
@@ -104,9 +97,34 @@ void ScreenSaver::DrawPauseMenu() {
 
 }
 
-void ScreenSaver::Clear() {
-    _grid_pos = 0;
-    for (int i = 0; i < _size; i++)
-        if (_objects[i] != nullptr)
-            _remove(i, true);
+//void ScreenSaver::Clear() {
+//    _grid_pos = 0;
+//    for (int i = 0; i < _size; i++)
+//        if (_objects[i] != nullptr)
+//            _remove(i, true);
+//}
+
+void ScreenSaver::_remove(int i, bool clear) {
+    if (clear)
+        delete _objects[i];
+    _objects[i] = _objects[--_size];
+    _objects[_size] = nullptr;
+}
+
+
+void ScreenSaver::Clear(bool soft) {
+    if (soft) {
+        for (int i = 0; i < _size; i++) {
+            _objects[i] = nullptr;
+        }
+    } else {
+        for (int i = 0; i < _size; i++) {
+            if (_objects[i] != nullptr) {
+                delete _objects[i];
+                _objects[i] = nullptr;
+            }
+        }
+    }
+    _size = 0;
+
 }

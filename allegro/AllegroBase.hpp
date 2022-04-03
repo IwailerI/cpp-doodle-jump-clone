@@ -12,10 +12,8 @@
 #include "windows.h"
 #include <allegro5/allegro_windows.h>
 
+#include "../util/constants.h"
 
-const int FPS = 60;
-const int SCREEN_W = 480;
-const int SCREEN_H = 854;
 
 class AllegroBase
 {

@@ -25,6 +25,12 @@ ResourceManager::ResourceManager() {
         exit(1);
     }
 
+    sprite_player_dead = al_load_bitmap("player_dead_left.png");
+    if (sprite_player_dead == nullptr) {
+        std::cout << "Unable to find player_dead_left.png" << std::endl;
+        exit(1);
+    }
+
     // Platforms
     sprite_platform = al_load_bitmap("platform.png");
     if (sprite_platform == nullptr) {
@@ -36,6 +42,18 @@ ResourceManager::ResourceManager() {
     sprite_enemy_simple = al_load_bitmap("enemy_simple.png");
     if (sprite_enemy_simple == nullptr) {
         std::cout << "Unable to find enemy_simple.png" << std::endl;
+        exit(1);
+    }
+
+    sprite_enemy_simple_victory = al_load_bitmap("enemy_simple_grin.png");
+    if (sprite_enemy_simple_victory == nullptr) {
+        std::cout << "Unable to find enemy_simple_grin.png" << std::endl;
+        exit(1);
+    }
+
+    sprite_enemy_simple_dead = al_load_bitmap("enemy_simple_dead.png");
+    if (sprite_enemy_simple_dead == nullptr) {
+        std::cout << "Unable to find enemy_simple_dead.png" << std::endl;
         exit(1);
     }
 

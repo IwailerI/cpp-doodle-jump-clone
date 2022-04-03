@@ -56,7 +56,7 @@ public:
     int Add(GameObject *s);
     void Offset(Vector2 v);
 
-    void Clear();
+    void Clear(bool soft = true);
 };
 
 

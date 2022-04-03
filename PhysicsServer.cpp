@@ -44,10 +44,15 @@ void PhysicsServer::Clear(bool soft) {
         for (int i = 0; i < _size; i++) {
             _bodies[i] = nullptr;
         }
-        _size = 0;
     } else {
-        for (int i = 0; i < _size; i++)
-            if (_bodies[i] != nullptr)
-                remove(i, true);
+        for (int i = 0; i < _size; i++) {
+            if (_bodies[i] != nullptr) {
+                delete _bodies[i];
+                _bodies[i] = nullptr;
+            }
+        }
+        delete _player;
+        _player = nullptr;
     }
+    _size = 0;
 }

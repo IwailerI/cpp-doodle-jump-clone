@@ -5,7 +5,7 @@
 #include "Platform.h"
 
 void Platform::_update() {
-    if (GameObject::_position.y >= DELETE_TRESHOLD) {
+    if (GameObject::_position.y >= OBJECT_DELETE_TRESHOLD) {
         _suicide();
     }
 }
@@ -32,14 +32,19 @@ Platform::Platform(Vector2 position): Sprite()
     _position = position;
 }
 
-Vector2 Platform::getPosition() const {
+Vector2 Platform::_getColliderPosition(bool alternative) const {
     return _position;
+}
+
+Vector2 Platform::_getDimensions(bool alternative) const {
+    return GetImageSize();
 }
 
 void Platform::onCollision(Collider *col) {
     // do nothing
 }
 
-Vector2 Platform::_getDimensions(bool alternative) const {
-    return GetImageSize();
+Vector2 Platform::PlatformDimensions() {
+    auto p = ResourceManager::Instance().sprite_platform;
+    return {al_get_bitmap_width(p), al_get_bitmap_height(p)};
 }

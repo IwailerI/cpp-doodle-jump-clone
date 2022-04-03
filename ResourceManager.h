@@ -24,8 +24,11 @@ public:
 
     ALLEGRO_BITMAP *sprite_player_right;
     ALLEGRO_BITMAP *sprite_player_left;
+    ALLEGRO_BITMAP *sprite_player_dead;
 
     ALLEGRO_BITMAP *sprite_enemy_simple;
+    ALLEGRO_BITMAP *sprite_enemy_simple_victory;
+    ALLEGRO_BITMAP *sprite_enemy_simple_dead;
 
     ALLEGRO_BITMAP *sprite_platform;
 

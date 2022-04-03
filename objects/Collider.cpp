@@ -8,10 +8,10 @@ double absf(double n) {if (n<0) return -n; return n;}
 
 bool Collider::isColliding(Collider *col, bool alternative) const {
     Vector2 ext1 = getDimensions(alternative) * .5;
-    Vector2 ext2 = col->getDimensions() * .5;
+    Vector2 ext2 = col->getDimensions(alternative) * .5;
 
-    Vector2 center1 = getPosition() + ext1;
-    Vector2 center2 = col->getPosition() + ext2;
+    Vector2 center1 = getColliderPosition(alternative) + ext1;
+    Vector2 center2 = col->getColliderPosition(alternative) + ext2;
 
     return (absf(center1.x-center2.x) <= ext1.x + ext2.x) && (absf(center1.y-center2.y) <= ext1.y + ext2.y);
 }

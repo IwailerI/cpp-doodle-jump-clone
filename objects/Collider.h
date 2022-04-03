@@ -16,14 +16,17 @@ protected:
     int _marked_for_physics_deletion = 0; // 0 - no, 1 - yes, delete only from list, 2 - yes, also clear memmory
 
     virtual Vector2 _getDimensions(bool alternative) const = 0;
+    virtual Vector2 _getColliderPosition(bool alternative) const = 0;
 
 public:
     virtual ~Collider() = default;
 
-    virtual Vector2 getPosition() const = 0;
 
     // wrapper for _getDimensions, because virtual functions can't accept default arguments?
-    Vector2 getDimensions(bool alternative = true) const {return _getDimensions(alternative);}
+    Vector2 getDimensions(bool alternative = false) const {return _getDimensions(alternative);}
+
+    // same
+    Vector2 getColliderPosition(bool alternative = false) const {return _getColliderPosition(alternative);};
 
     int getPhysicsId() const;
     void setPhysicsId(int physicsId);
