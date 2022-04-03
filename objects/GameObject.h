@@ -6,7 +6,6 @@
 #define PROJECT_GAMEOBJECT_H
 
 #include "../util/Vector2.h"
-#include "Transform.h"
 #include "../allegro/AllegroBase.hpp"
 
 // Game object is something that can be placed in the world and drawn and updated (optionally)

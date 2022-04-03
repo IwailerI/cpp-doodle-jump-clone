@@ -12,7 +12,6 @@ add_executable(project
         util/Vector2.cpp util/Vector2.h
         ScreenSaver.cpp ScreenSaver.h
         objects/GameObject.cpp objects/GameObject.h
-        objects/Transform.cpp objects/Transform.h
         objects/Sprite.cpp objects/Sprite.h
         objects/Collider.cpp objects/Collider.h
         Player.cpp Player.h
