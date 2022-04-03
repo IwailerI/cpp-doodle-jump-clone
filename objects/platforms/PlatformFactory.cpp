@@ -12,12 +12,12 @@ Platform *PlatformFactory::_random_platform(bool fake) {
                 break;
         }
     } else {
-        switch (std::rand()%2) {
+        switch (std::rand()%10) {
             case 0:
-                return new Platform(Vector2());
-                break;
-            case 1:
                 return new MovingPlatform(Vector2());
+                break;
+            default:
+                return new Platform(Vector2());
                 break;
         }
     }

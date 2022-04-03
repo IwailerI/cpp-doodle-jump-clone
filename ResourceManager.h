@@ -37,6 +37,18 @@ public:
     img sprite_enemy_simple_victory;
     img sprite_enemy_simple_dead;
 
+    img sprite_enemy_large;
+    img sprite_enemy_large_victory;
+    img sprite_enemy_large_dead;
+
+    img sprite_enemy_small;
+    img sprite_enemy_small_victory;
+    img sprite_enemy_small_dead;
+
+    img sprite_enemy_flying;
+    img sprite_enemy_flying_victory;
+    img sprite_enemy_flying_dead;
+
     img sprite_platform;
     img sprite_platform_fake;
     img sprite_platform_fake_broken;

@@ -8,9 +8,18 @@
 Enemy *EnemyFactory::GetRandomEnemy(double height) {
     Enemy *p = nullptr;
 
-    switch (std::rand()%1) {
+    switch (std::rand()%4) {
         case 0:
             p = new Enemy(Vector2());
+            break;
+        case 1:
+            p = new BigEnemy(Vector2());
+            break;
+        case 2:
+            p = new SmallEnemy(Vector2());
+            break;
+        case 3:
+            p = new FlyingEnemy(Vector2());
             break;
     }
 

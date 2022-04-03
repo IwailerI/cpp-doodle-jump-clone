@@ -31,7 +31,7 @@ void Enemy::onCollision(Collider *col) {
 }
 
 void Enemy::die() {
-    _rotation = 180;
+    //_rotation = 180;
     _sprite = _death_sprite;
     _is_dead = true;
 }

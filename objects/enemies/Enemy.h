@@ -27,6 +27,8 @@ protected:
 
     void _update() override;
 
+    Enemy(): Sprite() {};
+
 public:
     explicit Enemy(Vector2 position);
     ~Enemy() override = default;

@@ -6,6 +6,9 @@
 #define PROJECT_ENEMYFACTORY_H
 
 #include "Enemy.h"
+#include "BigEnemy.h"
+#include "FlyingEnemy.h"
+#include "SmallEnemy.h"
 #include "../../util/utils.h"
 
 class EnemyFactory {
