@@ -11,8 +11,9 @@
 #include "ResourceManager.h"
 
 #include "util/constants.h"
+#include "util/utils.h"
 
-class Player: public Sprite, public Collider {
+    class Player: public Sprite, public Collider {
 protected:
     Vector2 _velocity;
     void _update() override; // also handles input

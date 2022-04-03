@@ -45,9 +45,13 @@ void Player::onCollision(Collider *col) {
             if (_velocity.y > 0 && isColliding(col, true))
                 _velocity.y = -JUMP_VELOCITY;
             break;
+        case Boost:
+            if (isColliding(col, true))
+                _velocity.y = -BOOST_VELOCITY;
+            break;
         case KillBounce:
-            if (_velocity.y > 0 && isColliding(col, true)) {
-                _velocity.y = -JUMP_VELOCITY;
+            if ((_velocity.y > 0 && isColliding(col, true)) || _velocity.y < -JUMP_VELOCITY) {
+                _velocity.y = util::min(-JUMP_VELOCITY, _velocity.y);
                 col->onCollision(nullptr); // make enemy kill itself
             } else
                 die();

@@ -9,11 +9,15 @@
 #include "FakePlatform.h"
 #include "MovingPlatform.h"
 
+#include "../content/Content.h"
+#include "../content/Spring.h"
+
 #include "../../util/utils.h"
 
 class PlatformFactory {
 private:
     static Platform *_random_platform(bool fake = false);
+    static Content *_random_content();
 public:
     static Platform *GetRandomPlatform(double height, bool fake = false);
 };

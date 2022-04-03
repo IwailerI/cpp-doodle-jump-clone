@@ -5,10 +5,22 @@
 #include "Platform.h"
 
 void Platform::_update() {
+    // update content
+    if (_content!= nullptr) {
+        auto is = GetImageSize();
+        _content->UpdatePos(Vector2(_position.x + is.x * .5, _position.y - is.y * .5));
+    }
+
     if (GameObject::_position.y >= OBJECT_DELETE_TRESHOLD) {
+        if (_content != nullptr) {
+            _content->suicide();
+            _content = nullptr;
+        }
         _suicide();
     }
 }
+
+
 
 void Platform::_suicide() {
     if (_marked_for_object_deletion != 0 || _marked_for_physics_deletion != 0) return;
@@ -48,4 +60,10 @@ Platform::Platform(Vector2 position, ALLEGRO_BITMAP *sprite, PlayerInteraction P
     _position = position;
     _sprite = sprite;
     _player_interaction = PI;
+}
+
+void Platform::addContent(Content *c) {
+    if (_content != nullptr)
+        _content->suicide();
+    _content = c;
 }

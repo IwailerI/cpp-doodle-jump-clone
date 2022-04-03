@@ -53,6 +53,9 @@ public:
     img sprite_platform_fake;
     img sprite_platform_fake_broken;
     img sprite_platform_moving;
+
+    img sprite_spring;
+    img sprite_spring_triggered;
 };
 
 #endif //PROJECT_RESOURCEMANAGER_H

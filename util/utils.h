@@ -21,5 +21,10 @@ public:
         else if (n < min) return min;
         return n;
     }
+
+    static double min(double a, double b) {
+        if (a < b) return a;
+        return b;
+    }
 };
 #endif //PROJECT_UTILS_H

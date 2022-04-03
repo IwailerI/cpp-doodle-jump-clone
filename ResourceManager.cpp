@@ -137,6 +137,18 @@ ResourceManager::ResourceManager() {
     }
 
 
+    // Contents
+    sprite_spring = al_load_bitmap("spring_1.png");
+    if (sprite_spring == nullptr) {
+        std::cout << "Unable to find spring_1.png" << std::endl;
+        exit(1);
+    }
+    sprite_spring_triggered = al_load_bitmap("spring_2.png");
+    if (sprite_spring_triggered == nullptr) {
+        std::cout << "Unable to find spring_2.png" << std::endl;
+        exit(1);
+    }
+
 
     // Fonts
     font = al_load_ttf_font("font.ttf", 72, 0);

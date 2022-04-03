@@ -8,6 +8,7 @@
 #include "../Collider.h"
 #include "../Sprite.h"
 #include "../../ResourceManager.h"
+#include "../content/Content.h"
 
 class Platform: public Sprite, public Collider {
 public:
@@ -16,10 +17,15 @@ public:
 
     void onCollision(Collider *col) override;
 
+    void addContent(Content *c);
+    Content *getContent() {return _content;}
+
 protected:
     Platform (Vector2 position, ALLEGRO_BITMAP* sprite, PlayerInteraction PE = Bounce);
     Vector2 _getColliderPosition(bool alternative) const override;
     Vector2 _getDimensions(bool alternative) const override;
+
+    Content *_content = nullptr;
 
     void _update() override;
 

@@ -13,6 +13,7 @@ const int SCREEN_H = 854;
 // player settings
 const double GRAVITY = 1.5;
 const double JUMP_VELOCITY = 30;
+const double BOOST_VELOCITY = 50;
 const double MOVEMENT_SPEED = 10;
 
 // object delete treshold, when going offscreen
@@ -31,7 +32,10 @@ const double MAX_ENEMY_DISTANCE = 7500;
 const double MIN_ENEMY_DISTANCE = 1000;
 const double DISTANCE_RAMPUP = SCREEN_H*25;
 const double OBJECT_SPAWN_TRESHOLD = -10;
-const double FAKE_PLATFORM_CHANCE = .25;
 const double ASSUMED_PLATFORM_HEIGHT = 30;
+
+// spawn rates
+const double FAKE_PLATFORM_CHANCE = .25; // per every gap between 2 platforms
+const double SPRING_CHANCE = .1; // per platform
 
 #endif //PROJECT_CONSTANTS_H

@@ -35,8 +35,13 @@ add_executable(project
         objects/enemies/EnemyFactory.h objects/enemies/EnemyFactory.cpp
         objects/enemies/Enemy.h objects/enemies/Enemy.cpp
         objects/enemies/BigEnemy.h
+        objects/enemies/SmallEnemy.h
+        objects/enemies/FlyingEnemy.h
 
-        objects/enemies/SmallEnemy.h objects/enemies/FlyingEnemy.h)
+        objects/content/Content.cpp objects/content/Content.h
+        objects/content/Spring.cpp objects/content/Spring.h
+
+        )
 
 target_link_libraries(project
         allegro

@@ -4,6 +4,13 @@
 
 #include "PlatformFactory.h"
 
+Content *PlatformFactory::_random_content() {
+    if (util::randf(0, 1) <= SPRING_CHANCE) {
+        return new Spring();
+    }
+    return nullptr;
+}
+
 Platform *PlatformFactory::_random_platform(bool fake) {
     if (fake) {
         switch (std::rand()%1) {
@@ -29,6 +36,9 @@ Platform *PlatformFactory::GetRandomPlatform(double height, bool fake) {
     Platform *p = _random_platform(fake);
 
     p->setPosition(Vector2(util::randf(0, SCREEN_W - p->GetImageSize().x), height));
+
+    if (!fake)
+        p->addContent(_random_content());
 
     return p;
 }

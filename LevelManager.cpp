@@ -42,6 +42,10 @@ void LevelManager::_genNextPlatform() {
 
     ScreenSaver::Instance().Add(p);
     PhysicsServer::Instance().Add(p);
+    if (p->getContent() != nullptr) {
+        ScreenSaver::Instance().Add(p->getContent());
+        PhysicsServer::Instance().Add(p->getContent());
+    }
 }
 
 void LevelManager::_genNextEnemy() {
