@@ -7,6 +7,7 @@
 
 #include "Platform.h"
 #include "FakePlatform.h"
+#include "MovingPlatform.h"
 
 #include "../../util/utils.h"
 

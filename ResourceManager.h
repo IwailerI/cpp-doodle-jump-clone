@@ -40,6 +40,7 @@ public:
     img sprite_platform;
     img sprite_platform_fake;
     img sprite_platform_fake_broken;
+    img sprite_platform_moving;
 };
 
 #endif //PROJECT_RESOURCEMANAGER_H

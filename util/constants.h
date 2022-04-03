@@ -18,7 +18,12 @@ const double MOVEMENT_SPEED = 10;
 // object delete treshold, when going offscreen
 const double OBJECT_DELETE_TRESHOLD = SCREEN_H + 50;
 
-// generator settings, better to leave them be
+// platforms
+
+const double MIN_PLATFORM_SPEED = 1;
+const double MAX_PLATFORM_SPEED = 10;
+
+// generator settings, best to leave them be
 const int SCROLL_TRESHOLD = SCREEN_H/3;
 const double MAX_PLATFORM_DISTANCE = 210;
 const double MIN_PLATFORM_DISTANCE = 40;

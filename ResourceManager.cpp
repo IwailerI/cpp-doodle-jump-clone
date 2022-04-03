@@ -55,6 +55,11 @@ ResourceManager::ResourceManager() {
         exit(1);
     }
 
+    sprite_platform_moving = al_load_bitmap("moving_platform.png");
+    if (sprite_platform_moving == nullptr) {
+        std::cout << "Unable to find moving_platform.png" << std::endl;
+        exit(1);
+    }
 
 
     // Enemies

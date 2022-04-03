@@ -34,7 +34,7 @@ add_executable(project
         objects/enemies/EnemyFactory.h objects/enemies/EnemyFactory.cpp
         objects/enemies/Enemy.h objects/enemies/Enemy.cpp
 
-        )
+        objects/platforms/MovingPlatform.cpp objects/platforms/MovingPlatform.h)
 
 target_link_libraries(project
         allegro
