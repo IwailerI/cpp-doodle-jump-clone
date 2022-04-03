@@ -10,8 +10,10 @@ add_executable(project
         main.cpp
 
         allegro/AllegroBase.hpp allegro/AllegroBase.cpp
-        util/Vector2.cpp util/Vector2.h
         util/constants.h
+        util/utils.h
+
+        util/Vector2.cpp util/Vector2.h
 
         allegro/Game.cpp allegro/Game.h
         Player.cpp Player.h
@@ -25,8 +27,10 @@ add_executable(project
         objects/Sprite.cpp objects/Sprite.h
         objects/Collider.cpp objects/Collider.h
 
+        objects/platforms/PlatformFactory.h objects/platforms/PlatformFactory.cpp
         objects/platforms/Platform.cpp objects/platforms/Platform.h
 
+        objects/enemies/EnemyFactory.h objects/enemies/EnemyFactory.cpp
         objects/enemies/Enemy.h objects/enemies/Enemy.cpp
 
         )

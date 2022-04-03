@@ -19,6 +19,7 @@ public:
     static Vector2 PlatformDimensions();
 
 protected:
+    Platform (Vector2 position, ALLEGRO_BITMAP* sprite, PlayerInteraction PE = Bounce);
     Vector2 _getColliderPosition(bool alternative) const override;
     Vector2 _getDimensions(bool alternative) const override;
 

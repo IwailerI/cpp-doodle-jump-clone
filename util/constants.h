@@ -22,9 +22,10 @@ const double OBJECT_DELETE_TRESHOLD = SCREEN_H + 50;
 const int SCROLL_TRESHOLD = SCREEN_H/3;
 const double MAX_PLATFORM_DISTANCE = 210;
 const double MIN_PLATFORM_DISTANCE = 40;
-const double MAX_ENEMY_DISTANCE = 100;
-const double MIN_ENEMY_DISTANCE = 10;
+const double MAX_ENEMY_DISTANCE = 7500;
+const double MIN_ENEMY_DISTANCE = 1000;
 const double DISTANCE_RAMPUP = SCREEN_H*25;
 const double OBJECT_SPAWN_TRESHOLD = -10;
+const double FAKE_PLATFORM_CHANCE = .1;
 
 #endif //PROJECT_CONSTANTS_H

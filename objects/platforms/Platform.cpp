@@ -48,3 +48,9 @@ Vector2 Platform::PlatformDimensions() {
     auto p = ResourceManager::Instance().sprite_platform;
     return {al_get_bitmap_width(p), al_get_bitmap_height(p)};
 }
+
+Platform::Platform(Vector2 position, ALLEGRO_BITMAP *sprite, PlayerInteraction PI): Sprite() {
+    _position = position;
+    _sprite = sprite;
+    _player_interaction = PI;
+}

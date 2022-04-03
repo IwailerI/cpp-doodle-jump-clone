@@ -133,12 +133,26 @@ build CMakeFiles/project.dir/objects/Collider.cpp.obj: CXX_COMPILER__project_Deb
   OBJECT_DIR = CMakeFiles\project.dir
   OBJECT_FILE_DIR = CMakeFiles\project.dir\objects
 
+build CMakeFiles/project.dir/objects/platforms/PlatformFactory.cpp.obj: CXX_COMPILER__project_Debug D$:/All/Coding/C++/project/objects/platforms/PlatformFactory.cpp || cmake_object_order_depends_target_project
+  DEP_FILE = CMakeFiles\project.dir\objects\platforms\PlatformFactory.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2021.3.2/bin/mingw"
+  OBJECT_DIR = CMakeFiles\project.dir
+  OBJECT_FILE_DIR = CMakeFiles\project.dir\objects\platforms
+
 build CMakeFiles/project.dir/objects/platforms/Platform.cpp.obj: CXX_COMPILER__project_Debug D$:/All/Coding/C++/project/objects/platforms/Platform.cpp || cmake_object_order_depends_target_project
   DEP_FILE = CMakeFiles\project.dir\objects\platforms\Platform.cpp.obj.d
   FLAGS = -g -std=gnu++14
   INCLUDES = -I"C:/Program Files/JetBrains/CLion 2021.3.2/bin/mingw"
   OBJECT_DIR = CMakeFiles\project.dir
   OBJECT_FILE_DIR = CMakeFiles\project.dir\objects\platforms
+
+build CMakeFiles/project.dir/objects/enemies/EnemyFactory.cpp.obj: CXX_COMPILER__project_Debug D$:/All/Coding/C++/project/objects/enemies/EnemyFactory.cpp || cmake_object_order_depends_target_project
+  DEP_FILE = CMakeFiles\project.dir\objects\enemies\EnemyFactory.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I"C:/Program Files/JetBrains/CLion 2021.3.2/bin/mingw"
+  OBJECT_DIR = CMakeFiles\project.dir
+  OBJECT_FILE_DIR = CMakeFiles\project.dir\objects\enemies
 
 build CMakeFiles/project.dir/objects/enemies/Enemy.cpp.obj: CXX_COMPILER__project_Debug D$:/All/Coding/C++/project/objects/enemies/Enemy.cpp || cmake_object_order_depends_target_project
   DEP_FILE = CMakeFiles\project.dir\objects\enemies\Enemy.cpp.obj.d
@@ -155,7 +169,7 @@ build CMakeFiles/project.dir/objects/enemies/Enemy.cpp.obj: CXX_COMPILER__projec
 #############################################
 # Link the executable project.exe
 
-build project.exe: CXX_EXECUTABLE_LINKER__project_Debug CMakeFiles/project.dir/main.cpp.obj CMakeFiles/project.dir/allegro/AllegroBase.cpp.obj CMakeFiles/project.dir/util/Vector2.cpp.obj CMakeFiles/project.dir/allegro/Game.cpp.obj CMakeFiles/project.dir/Player.cpp.obj CMakeFiles/project.dir/ScreenSaver.cpp.obj CMakeFiles/project.dir/LevelManager.cpp.obj CMakeFiles/project.dir/PhysicsServer.cpp.obj CMakeFiles/project.dir/ResourceManager.cpp.obj CMakeFiles/project.dir/objects/GameObject.cpp.obj CMakeFiles/project.dir/objects/Sprite.cpp.obj CMakeFiles/project.dir/objects/Collider.cpp.obj CMakeFiles/project.dir/objects/platforms/Platform.cpp.obj CMakeFiles/project.dir/objects/enemies/Enemy.cpp.obj
+build project.exe: CXX_EXECUTABLE_LINKER__project_Debug CMakeFiles/project.dir/main.cpp.obj CMakeFiles/project.dir/allegro/AllegroBase.cpp.obj CMakeFiles/project.dir/util/Vector2.cpp.obj CMakeFiles/project.dir/allegro/Game.cpp.obj CMakeFiles/project.dir/Player.cpp.obj CMakeFiles/project.dir/ScreenSaver.cpp.obj CMakeFiles/project.dir/LevelManager.cpp.obj CMakeFiles/project.dir/PhysicsServer.cpp.obj CMakeFiles/project.dir/ResourceManager.cpp.obj CMakeFiles/project.dir/objects/GameObject.cpp.obj CMakeFiles/project.dir/objects/Sprite.cpp.obj CMakeFiles/project.dir/objects/Collider.cpp.obj CMakeFiles/project.dir/objects/platforms/PlatformFactory.cpp.obj CMakeFiles/project.dir/objects/platforms/Platform.cpp.obj CMakeFiles/project.dir/objects/enemies/EnemyFactory.cpp.obj CMakeFiles/project.dir/objects/enemies/Enemy.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lallegro  -lallegro_primitives  -lallegro_image  -lallegro_font  -lallegro_ttf  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\project.dir

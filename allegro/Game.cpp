@@ -44,7 +44,6 @@ void Game::Fps() {
         }
     } else if (_state == END) {
         if (IsPressed(ALLEGRO_KEY_SPACE)) {
-            std::cout << "restarted" << std::endl;
             _level_manager.Reset();
             _physics_server.Clear(true);
             _screen_saver.Clear(false);

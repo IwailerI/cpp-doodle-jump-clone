@@ -5,20 +5,19 @@
 #ifndef PROJECT_LEVELMANAGER_H
 #define PROJECT_LEVELMANAGER_H
 
-// TODO replace with enemy abd platform factories
-#include "objects/platforms/Platform.h"
-#include "objects/enemies/Enemy.h"
+#include "objects/platforms/PlatformFactory.h"
+#include "objects/enemies/EnemyFactory.h"
 
 #include "ScreenSaver.h"
 #include "PhysicsServer.h"
 #include <cstdlib>
 
+#include "util/utils.h"
+
 class LevelManager {
 private:
     LevelManager() {Reset();}
     double getMinDistance() const;
-
-    double _platform_width = Platform::PlatformDimensions().x;
 
 protected:
     GameObject *_player = nullptr;
@@ -27,7 +26,6 @@ protected:
     double _last_platform;
     double _total_distance;
 
-    double _next_enemy_distance;
     double _last_enemy;
 
     void _genNextPlatform();

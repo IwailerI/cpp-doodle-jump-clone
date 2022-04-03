@@ -9,7 +9,6 @@
 #include "objects/Collider.h"
 #include "objects/platforms/Platform.h"
 #include "ResourceManager.h"
-#include <iostream> // debug TODO remove and  make normal death sequance
 
 #include "util/constants.h"
 

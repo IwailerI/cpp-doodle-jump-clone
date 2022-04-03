@@ -78,10 +78,9 @@ Player::Player(Vector2 position) {
 }
 
 void Player::die() {
-    std::cout << "Player is ded." << std::endl;
     _is_dead = true;
     _sprite = ResourceManager::Instance().sprite_player_dead;
-    _velocity = Vector2();
+//    _velocity = Vector2();
 }
 
 Vector2 Player::_getColliderPosition(bool alternative) const {

@@ -4,18 +4,13 @@
 
 #include "LevelManager.h"
 
-double randf(double min, double max) {
-    double f = std::rand();
-    f /= RAND_MAX;
-    f *= max-min;
-    return f + min;
-}
-
 void LevelManager::Update() {
     if (_player->getPosition().y < SCROLL_TRESHOLD) {
         ScreenSaver::Instance().Offset(Vector2(0.0, (double)SCROLL_TRESHOLD-_player->getPosition().y));
-        _last_platform+=(double)SCROLL_TRESHOLD - _player->getPosition().y;
-        _total_distance+=(double)SCROLL_TRESHOLD - _player->getPosition().y;
+        auto scroll = (double)SCROLL_TRESHOLD - _player->getPosition().y;
+        _last_platform+=scroll;
+        _last_enemy+=scroll;
+        _total_distance+=scroll;
     }
     while (_last_platform > OBJECT_SPAWN_TRESHOLD)
         _genNextPlatform();
@@ -24,40 +19,46 @@ void LevelManager::Update() {
         _genNextEnemy();
 }
 
-double clamp(double n, double min, double max) {
-    if (n > max) return max;
-    else if (n < min) return min;
-    return n;
-}
-
 double LevelManager::getMinDistance() const {
-    return clamp(MIN_PLATFORM_DISTANCE + (MAX_PLATFORM_DISTANCE - MIN_PLATFORM_DISTANCE)*_total_distance/DISTANCE_RAMPUP, 0, MAX_PLATFORM_DISTANCE-10);
+    return util::clamp(MIN_PLATFORM_DISTANCE + (MAX_PLATFORM_DISTANCE - MIN_PLATFORM_DISTANCE)*_total_distance/DISTANCE_RAMPUP, 0, MAX_PLATFORM_DISTANCE-10);
 }
 
 void LevelManager::_genNextPlatform() {
-    _next_distance = randf(getMinDistance(), MAX_PLATFORM_DISTANCE);
-    // TODO select platform type at random
-    _last_platform -= _next_distance;
-    auto *p = new Platform(Vector2(randf(0, SCREEN_W - _platform_width), _last_platform));
+    Platform *p = nullptr;
+    if (util::randf(0, 1) <= FAKE_PLATFORM_CHANCE && 0) { // TODO remove && false and make actual fake platform
+        // we are generating a fake platform
+        _next_distance = util::clamp(_next_distance, getMinDistance()*2, MAX_PLATFORM_DISTANCE-getMinDistance());
+
+        p = PlatformFactory::GetRandomPlatform(_last_platform+_next_distance, true);
+
+        _next_distance = util::randf(getMinDistance(), MAX_PLATFORM_DISTANCE-_next_distance);
+
+    } else {
+        // we are generating a normal platform
+        _last_platform -= _next_distance;
+
+        p = PlatformFactory::GetRandomPlatform(_last_platform, false);
+
+        _next_distance = util::randf(getMinDistance(), MAX_PLATFORM_DISTANCE);
+    }
+
     ScreenSaver::Instance().Add(p);
     PhysicsServer::Instance().Add(p);
 }
 
 void LevelManager::_genNextEnemy() {
-    _next_enemy_distance = randf(MIN_ENEMY_DISTANCE, MAX_ENEMY_DISTANCE);
-    _last_enemy -= _next_enemy_distance;
+    _last_enemy -= util::randf(MIN_ENEMY_DISTANCE, MAX_ENEMY_DISTANCE);
     // TODO replace width
-    auto *e = new Enemy(Vector2(randf(0, SCREEN_W - _platform_width), _last_enemy));
+    auto *e = EnemyFactory::GetRandomEnemy(_last_enemy);
     ScreenSaver::Instance().Add(e);
     PhysicsServer::Instance().Add(e);
 }
 
 void LevelManager::Reset() {
-    _next_distance = 0.0;
+    _next_distance = MIN_PLATFORM_DISTANCE+10;
     _last_platform = 700.0;
     _total_distance = 0.0;
 
-    _next_enemy_distance = 0.0;
-    _last_enemy = 0;
+    _last_enemy = -1000;
 }
 
