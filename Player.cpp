@@ -32,7 +32,7 @@ void Player::_update() {
     if (_position.x < -GetImageSize().x) _position.x += SCREEN_W+GetImageSize().x;
     else if (_position.x > SCREEN_W) _position.x -= SCREEN_W+GetImageSize().x;
 
-    if (_position.y > OBJECT_DELETE_TRESHOLD) {
+    if (_position.y > OBJECT_DELETE_THRESHOLD) {
         die();
     }
 }

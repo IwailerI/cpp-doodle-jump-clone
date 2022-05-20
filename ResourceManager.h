@@ -5,16 +5,12 @@
 #ifndef PROJECT_RESOURCEMANAGER_H
 #define PROJECT_RESOURCEMANAGER_H
 
-#include <cstdlib>
-#include <iostream>
-
 #include "allegro/AllegroBase.hpp"
 
-typedef ALLEGRO_BITMAP* img;
+#define img ALLEGRO_BITMAP*
 
-// global path to 'sprites' folder, using ONLY FORWARD SLASHES
+// path to 'sprites' folder, using ONLY FORWARD SLASHES
 // in my case, this is "D:/All/Coding/C++/project/sprites/"
-// on progmeistars courses "D:/Andrejs Pirozenoks/Lesson 8/DoodleJump/sprites/"
 const std::string FILEPATH = "D:/All/Coding/C++/project/sprites/";
 
 class ResourceManager {
@@ -56,6 +52,14 @@ public:
 
     img sprite_spring;
     img sprite_spring_triggered;
+};
+
+class str_exception : public std::exception {
+public:
+    std::string string;
+    str_exception(std::string s) : string(s) {}
+    ~str_exception() throw () {}
+    const char* what() const throw() { return string.c_str(); }
 };
 
 #endif //PROJECT_RESOURCEMANAGER_H

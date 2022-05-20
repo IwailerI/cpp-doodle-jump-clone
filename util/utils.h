@@ -9,22 +9,23 @@
 
 class util {
 public:
-    static double randf(double min, double max) {
+    inline static double randf(double min, double max) {
         double f = std::rand();
         f /= RAND_MAX;
         f *= max - min;
         return f + min;
     }
 
-    static double clamp(double n, double min, double max) {
-        if (n > max) return max;
-        else if (n < min) return min;
-        return n;
+    inline static double clamp(double n, double low, double high) {
+        return max(min(n, high), low);
     }
 
-    static double min(double a, double b) {
-        if (a < b) return a;
-        return b;
+    inline static double min(double a, double b) {
+        return (a < b) ? a : b;
+    }
+
+    inline static double max(double a, double b) {
+        return (a > b) ? a : b;
     }
 };
 #endif //PROJECT_UTILS_H

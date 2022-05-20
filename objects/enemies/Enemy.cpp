@@ -62,8 +62,8 @@ void Enemy::_update() {
         _death_velocity.y += GRAVITY;
         _position += _death_velocity;
     }
-    if (_position.y > OBJECT_DELETE_TRESHOLD) {
-        if (GameObject::_position.y >= OBJECT_DELETE_TRESHOLD) {
+    if (_position.y > OBJECT_DELETE_THRESHOLD) {
+        if (GameObject::_position.y >= OBJECT_DELETE_THRESHOLD) {
             _delete();
         }
     }

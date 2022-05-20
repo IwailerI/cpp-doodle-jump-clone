@@ -10,6 +10,8 @@
 
 const int MAX_OBJECTS = 200;
 
+#define rgb(r, g, b) al_map_rgb(r, g, b)
+
 // Singleton
 class ScreenSaver {
 private:

@@ -11,7 +11,7 @@ void Platform::_update() {
         _content->UpdatePos(Vector2(_position.x + is.x * .5, _position.y - is.y * .5));
     }
 
-    if (GameObject::_position.y >= OBJECT_DELETE_TRESHOLD) {
+    if (GameObject::_position.y >= OBJECT_DELETE_THRESHOLD) {
         if (_content != nullptr) {
             _content->suicide();
             _content = nullptr;

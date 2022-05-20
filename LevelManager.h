@@ -22,11 +22,11 @@ private:
 protected:
     GameObject *_player = nullptr;
 
-    double _next_distance;
-    double _last_platform;
-    double _total_distance;
+    double _next_distance = 0.0;
+    double _last_platform = 0.0;
+    double _total_distance = 0.0;
 
-    double _last_enemy;
+    double _last_enemy = 0.0;
 
     void _genNextPlatform();
     void _genNextEnemy();

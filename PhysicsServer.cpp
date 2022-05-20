@@ -12,8 +12,8 @@ void PhysicsServer::Update() {
     if (_player == nullptr) return;
     for (int i = 0; i < _size; ++i) {
         // delete if necessary
-        if (_bodies[i]->getPhysicsDeletionMark() != 0) {
-            remove(i, _bodies[i]->getPhysicsDeletionMark() - 1);
+        if (_bodies[i]->getPhysicsDeletionMark() != NOT_MARKED) {
+            remove(i, _bodies[i]->getPhysicsDeletionMark() == CLEAR_MEMORY);
             i--;
             continue;
         }

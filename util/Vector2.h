@@ -8,22 +8,18 @@
 
 #include <string>
 #include <cmath>
+#include <ostream>
 
-class Vector2 {
-public:
+struct Vector2 {
     double x, y;
 
     Vector2();
     Vector2(double x, double y);
     Vector2(int x, int y);
 
-    Vector2 operator+ (Vector2 vec) const;
-    Vector2 operator- (Vector2 vec) const;
-    Vector2 operator* (Vector2 vec) const;
-    Vector2 operator* (double n) const;
-    Vector2 operator/ (Vector2 vec) const;
-    Vector2 operator/ (double n) const;
+    double operator[] (int n);
 
+    Vector2 operator- ();
     void operator+= (Vector2 vec);
     void operator-= (Vector2 vec);
     void operator*= (Vector2 vec);
@@ -48,5 +44,15 @@ public:
 
     double Dot(Vector2 vec) const;
 };
+
+Vector2 operator+ (Vector2 v1, Vector2 v2);
+Vector2 operator- (Vector2 v1, Vector2 v2);
+Vector2 operator* (Vector2 v1, Vector2 v2);
+Vector2 operator/ (Vector2 v1, Vector2 v2);
+
+Vector2 operator* (Vector2 v, double n);
+Vector2 operator* (double n, Vector2 v);
+Vector2 operator/ (Vector2 v, double n);
+std::ostream &operator<<(std::ostream &os, Vector2 v);
 
 #endif //PROJECT_VECTOR2_H

@@ -21,7 +21,7 @@ protected:
     bool _sleeping = false;
 
     int _object_id = -1;
-    int _marked_for_object_deletion = 0; // 0 - no, 1 - yes, delete only from list, 2 - yes, also clear memory
+    int _marked_for_object_deletion = NOT_MARKED;
 
     virtual void _draw() = 0;
     virtual void _update() = 0;
@@ -52,8 +52,8 @@ public:
     int getObjectId() const;
     void setObjectId(int objectId);
 
-    void markForObjectDeletion(bool clear = false) { _marked_for_object_deletion = 1 + clear;}
-    int getObjectDeletionMark() const {return _marked_for_object_deletion;}
+    inline void markForObjectDeletion(bool clear = false) { _marked_for_object_deletion = (clear) ? CLEAR_MEMORY : KEEP_MEMORY;}
+    inline int getObjectDeletionMark() const {return _marked_for_object_deletion;}
 
     // methods
     void Draw();

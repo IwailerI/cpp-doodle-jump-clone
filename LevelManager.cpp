@@ -5,17 +5,17 @@
 #include "LevelManager.h"
 
 void LevelManager::Update() {
-    if (_player->getPosition().y < SCROLL_TRESHOLD) {
-        ScreenSaver::Instance().Offset(Vector2(0.0, (double)SCROLL_TRESHOLD-_player->getPosition().y));
-        auto scroll = (double)SCROLL_TRESHOLD - _player->getPosition().y;
+    if (_player->getPosition().y < SCROLL_THRESHOLD) {
+        ScreenSaver::Instance().Offset(Vector2(0.0, (double)SCROLL_THRESHOLD - _player->getPosition().y));
+        auto scroll = (double)SCROLL_THRESHOLD - _player->getPosition().y;
         _last_platform+=scroll;
         _last_enemy+=scroll;
         _total_distance+=scroll;
     }
-    while (_last_platform > OBJECT_SPAWN_TRESHOLD)
+    while (_last_platform > OBJECT_SPAWN_THRESHOLD)
         _genNextPlatform();
 
-    while (_last_enemy > OBJECT_SPAWN_TRESHOLD)
+    while (_last_enemy > OBJECT_SPAWN_THRESHOLD)
         _genNextEnemy();
 }
 
@@ -50,7 +50,6 @@ void LevelManager::_genNextPlatform() {
 
 void LevelManager::_genNextEnemy() {
     _last_enemy -= util::randf(MIN_ENEMY_DISTANCE, MAX_ENEMY_DISTANCE);
-    // TODO replace width
     auto *e = EnemyFactory::GetRandomEnemy(_last_enemy);
     ScreenSaver::Instance().Add(e);
     PhysicsServer::Instance().Add(e);
