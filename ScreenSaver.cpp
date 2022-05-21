@@ -126,5 +126,6 @@ void ScreenSaver::Clear(bool soft) {
         }
     }
     _size = 0;
+    _score = 0;
 
 }
