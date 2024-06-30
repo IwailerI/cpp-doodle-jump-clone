@@ -171,6 +171,6 @@ bool AllegroBase::IsPressed( int keycode )
     return pressedKeys_[ keycode ];
 }
 
-void AllegroBase::FocusGraphicWin() {
-    SetFocus(al_get_win_window_handle(alDisplay_));
-}
+// void AllegroBase::FocusGraphicWin() {
+//     SetFocus(al_get_win_window_handle(alDisplay_));
+// }

@@ -9,9 +9,8 @@
 
 #define img ALLEGRO_BITMAP*
 
-// path to 'sprites' folder, using ONLY FORWARD SLASHES
-// in my case, this is "D:/All/Coding/C++/project/sprites/"
-const std::string FILEPATH = "D:/All/Coding/C++/project/sprites/";
+// Relative path to the sprites folder.
+const std::string FILEPATH = "sprites";
 
 class ResourceManager {
 private:
