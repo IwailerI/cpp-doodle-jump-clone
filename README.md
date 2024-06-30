@@ -4,8 +4,7 @@ This is a clone of a fairly popular mobile game [Doodle Jump](https://doodlejump
 # Dependencies
 This project uses [Allegro](https://liballeg.org/) for drawing and handling input. It must be installed in order to build from source. Some instruction can be found [here](https://github.com/liballeg/allegro_wiki/wiki/Quickstart). It should be on your include path.
 
-# Building from source.
-
+# Building from source
 
 Run the cmake file using `cmake` (it must be installed, duh) and follow the native building instructions from there.
 
