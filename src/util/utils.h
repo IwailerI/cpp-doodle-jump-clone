@@ -8,7 +8,7 @@
 #include <random>
 
 class util {
-public:
+   public:
     inline static double randf(double min, double max) {
         double f = std::rand();
         f /= RAND_MAX;
@@ -20,12 +20,8 @@ public:
         return max(min(n, high), low);
     }
 
-    inline static double min(double a, double b) {
-        return (a < b) ? a : b;
-    }
+    inline static double min(double a, double b) { return (a < b) ? a : b; }
 
-    inline static double max(double a, double b) {
-        return (a > b) ? a : b;
-    }
+    inline static double max(double a, double b) { return (a > b) ? a : b; }
 };
-#endif //PROJECT_UTILS_H
+#endif  // PROJECT_UTILS_H

@@ -5,19 +5,18 @@
 #ifndef PROJECT_MOVINGPLATFORM_H
 #define PROJECT_MOVINGPLATFORM_H
 
-#include "Platform.h"
 #include "../../util/utils.h"
+#include "Platform.h"
 
-class MovingPlatform: public Platform {
-protected:
+class MovingPlatform : public Platform {
+   protected:
     void _update() override;
     double _velocity;
     double _width;
 
-public:
+   public:
     explicit MovingPlatform(const Vector2 &position);
     ~MovingPlatform() override = default;
 };
 
-
-#endif //PROJECT_MOVINGPLATFORM_H
+#endif  // PROJECT_MOVINGPLATFORM_H

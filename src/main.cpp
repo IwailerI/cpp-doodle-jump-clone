@@ -1,8 +1,10 @@
 #include "allegro/Game.h"
 
 int main() {
-    AllegroBase::InitAllegroAddons();
-    Game *al = &Game::Instance();
-    al->Run();
+    if (!AllegroBase::InitAllegroAddons()) return 1;
+
+    Game &game = Game::Instance();
+    game.Run();
+
     return 0;
 }

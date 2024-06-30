@@ -7,21 +7,20 @@
 
 #include "Platform.h"
 
-class FakePlatform: public Platform {
-public:
+class FakePlatform : public Platform {
+   public:
     explicit FakePlatform(const Vector2 &position);
     ~FakePlatform() override = default;
 
-    void onCollision(Collider *col) override;
+    void onCollision(std::shared_ptr<Collider> col) override;
 
     void demolish();
 
-protected:
+   protected:
     bool _broken = false;
     double _velocity = 0.0;
 
     void _update() override;
 };
 
-
-#endif //PROJECT_FAKEPLATFORM_H
+#endif  // PROJECT_FAKEPLATFORM_H

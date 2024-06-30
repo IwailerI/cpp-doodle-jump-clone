@@ -5,6 +5,8 @@
 #ifndef PROJECT_SCREENSAVER_H
 #define PROJECT_SCREENSAVER_H
 
+#include <vector>
+
 #include "allegro/AllegroBase.hpp"
 #include "objects/platforms/Platform.h"
 
@@ -14,12 +16,11 @@ const int MAX_OBJECTS = 200;
 
 // Singleton
 class ScreenSaver {
-private:
+   private:
     ScreenSaver();
 
-protected:
-    GameObject *_objects[MAX_OBJECTS]{};
-    int _size;
+   protected:
+    std::vector<std::shared_ptr<GameObject>> _objects;
     ALLEGRO_COLOR _background_color;
     ALLEGRO_COLOR _grid_color;
 
@@ -31,17 +32,17 @@ protected:
 
     ALLEGRO_FONT *_font;
 
-    //    Removes element at index i and optionally clears memmory
-    void _remove(int i, bool clear = true);
+    //    Removes element at index i
+    void _remove(int i);
 
-public:
+   public:
     // returns current singleton instance or creates a new one
     static ScreenSaver &Instance() {
         static ScreenSaver instance;
         return instance;
     }
 
-    virtual ~ScreenSaver();
+    virtual ~ScreenSaver() = default;
 
     void Draw();
     void Update();
@@ -50,11 +51,10 @@ public:
     void DrawPauseMenu();
     void DrawEndScreen();
 
-    int Add(GameObject *s);
+    int Add(std::shared_ptr<GameObject> s);
     void Offset(Vector2 v);
 
-    void Clear(bool soft = true);
+    void Clear();
 };
 
-
-#endif //PROJECT_SCREENSAVER_H
+#endif  // PROJECT_SCREENSAVER_H

@@ -5,17 +5,17 @@
 #ifndef PROJECT_ENEMY_H
 #define PROJECT_ENEMY_H
 
-#include "../Sprite.h"
-#include "../Collider.h"
 #include "../../ResourceManager.h"
+#include "../Collider.h"
+#include "../Sprite.h"
 
-class Enemy: public Sprite, public Collider {
-protected:
+class Enemy : public Sprite, public Collider {
+   protected:
     Vector2 _getColliderPosition(bool alternative) const override;
     Vector2 _getDimensions(bool alternative) const override;
 
-    ALLEGRO_BITMAP *_victory_sprite;
-    ALLEGRO_BITMAP *_death_sprite;
+    img _victory_sprite;
+    img _death_sprite;
 
     virtual void _victory();
 
@@ -27,19 +27,16 @@ protected:
 
     void _update() override;
 
-    Enemy(): Sprite() {};
+    Enemy() : Sprite(){};
 
-public:
+   public:
     explicit Enemy(Vector2 position);
     ~Enemy() override = default;
 
-    void onCollision(Collider *col) override;
-
-
+    void onCollision(std::shared_ptr<Collider> col) override;
 
     virtual void die();
-    bool isDead() const {return _is_dead;};
+    bool isDead() const { return _is_dead; };
 };
 
-
-#endif //PROJECT_ENEMY_H
+#endif  // PROJECT_ENEMY_H

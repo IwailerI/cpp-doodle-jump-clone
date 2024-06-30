@@ -4,9 +4,9 @@
 
 #include "FakePlatform.h"
 
-FakePlatform::FakePlatform(const Vector2 &position):
-Platform(position, ResourceManager::Instance().sprite_platform_fake, Break)
-{}
+FakePlatform::FakePlatform(const Vector2 &position)
+    : Platform(position, ResourceManager::Instance().sprite_platform_fake,
+               PlayerInteraction::Break) {}
 
 void FakePlatform::_update() {
     Platform::_update();
@@ -16,9 +16,8 @@ void FakePlatform::_update() {
     }
 }
 
-void FakePlatform::onCollision(Collider *col) {
-    if (col == nullptr)
-        demolish();
+void FakePlatform::onCollision(std::shared_ptr<Collider> col) {
+    if (col == nullptr) demolish();
 }
 
 void FakePlatform::demolish() {

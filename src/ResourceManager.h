@@ -2,21 +2,23 @@
 // Created by wailer on 16/03/2022.
 //
 
-#ifndef PROJECT_RESOURCEMANAGER_H
-#define PROJECT_RESOURCEMANAGER_H
+#ifndef PROJECT_RESOURCE_MANAGER_H
+#define PROJECT_RESOURCE_MANAGER_H
+
+#include <memory>
 
 #include "allegro/AllegroBase.hpp"
 
-#define img ALLEGRO_BITMAP*
+typedef ALLEGRO_BITMAP *img;
 
 // Relative path to the sprites folder.
 const std::string FILEPATH = "sprites";
 
 class ResourceManager {
-private:
+   private:
     ResourceManager();
 
-public:
+   public:
     static ResourceManager &Instance() {
         static ResourceManager instance;
         return instance;
@@ -54,11 +56,11 @@ public:
 };
 
 class str_exception : public std::exception {
-public:
+   public:
     std::string string;
     str_exception(std::string s) : string(s) {}
-    ~str_exception() throw () {}
-    const char* what() const throw() { return string.c_str(); }
+    ~str_exception() throw() {}
+    const char *what() const throw() { return string.c_str(); }
 };
 
-#endif //PROJECT_RESOURCEMANAGER_H
+#endif  // PROJECT_RESOURCE_MANAGER_H

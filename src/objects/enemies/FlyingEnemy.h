@@ -7,17 +7,17 @@
 
 #include "Enemy.h"
 
-class FlyingEnemy: public Enemy {
-public:
+class FlyingEnemy : public Enemy {
+   public:
     explicit FlyingEnemy(const Vector2 &position) : Enemy() {
         _position = position;
         _sprite = ResourceManager::Instance().sprite_enemy_flying;
-        _victory_sprite = ResourceManager::Instance().sprite_enemy_flying_victory;
+        _victory_sprite =
+            ResourceManager::Instance().sprite_enemy_flying_victory;
         _death_sprite = ResourceManager::Instance().sprite_enemy_flying_dead;
-        _player_interaction = KillBounce;
+        _player_interaction = PlayerInteraction::KillBounce;
     };
     ~FlyingEnemy() override = default;
 };
 
-
-#endif //PROJECT_FLYINGENEMY_H
+#endif  // PROJECT_FLYINGENEMY_H

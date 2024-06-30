@@ -5,30 +5,30 @@
 #ifndef PROJECT_PLAYER_H
 #define PROJECT_PLAYER_H
 
-#include "objects/Sprite.h"
-#include "objects/Collider.h"
-#include "objects/platforms/Platform.h"
-#include "ResourceManager.h"
+#include <memory>
 
+#include "ResourceManager.h"
+#include "objects/Collider.h"
+#include "objects/Sprite.h"
+#include "objects/platforms/Platform.h"
 #include "util/constants.h"
 #include "util/utils.h"
 
-    class Player: public Sprite, public Collider {
-protected:
+class Player : public Sprite, public Collider {
+   protected:
     Vector2 _velocity;
-    void _update() override; // also handles input
-//    void _draw() override;
+    void _update() override;  // also handles input
+                              //    void _draw() override;
 
     bool _is_dead = false;
-
 
     Vector2 _getDimensions(bool alternative) const override;
     Vector2 _getColliderPosition(bool alternative) const override;
 
-public:
+   public:
     explicit Player(Vector2 position);
 
-    void onCollision(Collider *col) override;
+    void onCollision(std::shared_ptr<Collider> col) override;
 
     const Vector2 &getVelocity() const;
     void setVelocity(const Vector2 &velocity);
@@ -36,11 +36,12 @@ public:
     void die();
 
     bool isDead() const { return _is_dead; }
-    bool isCompletelyDead() {return isDead() && _position.y > SCREEN_H * 1.3;}
+    bool isDeathAnimationFinished() {
+        return isDead() && _position.y > SCREEN_H * 1.3;
+    }
 
     bool is_right_held = false;
     bool is_left_held = false;
 };
 
-
-#endif //PROJECT_PLAYER_H
+#endif  // PROJECT_PLAYER_H

@@ -5,14 +5,13 @@
 #ifndef PROJECT_GAMEOBJECT_H
 #define PROJECT_GAMEOBJECT_H
 
+#include "../allegro/AllegroBase.hpp"
 #include "../util/Vector2.h"
 
-#include "../allegro/AllegroBase.hpp"
-
-
-// Game object is something that can be placed in the world and drawn and updated (optionally)
+// Game object is something that can be placed in the world and drawn and
+// updated (optionally)
 class GameObject {
-protected:
+   protected:
     Vector2 _position = Vector2(0.0, 0.0);
     double _rotation = 0.0;
     Vector2 _scale = Vector2(1.0, 1.0);
@@ -21,11 +20,12 @@ protected:
     bool _sleeping = false;
 
     int _object_id = -1;
-    int _marked_for_object_deletion = NOT_MARKED;
+    bool _is_marked_for_deletion = false;
 
     virtual void _draw() = 0;
     virtual void _update() = 0;
-public:
+
+   public:
     // constructors/destructors
     GameObject(const Vector2 &position, double rotation, const Vector2 &scale);
     GameObject();
@@ -52,14 +52,14 @@ public:
     int getObjectId() const;
     void setObjectId(int objectId);
 
-    inline void markForObjectDeletion(bool clear = false) { _marked_for_object_deletion = (clear) ? CLEAR_MEMORY : KEEP_MEMORY;}
-    inline int getObjectDeletionMark() const {return _marked_for_object_deletion;}
+    inline void markForObjectDeletion() { _is_marked_for_deletion = true; }
+    inline bool isMarkedForObjectDeletion() const {
+        return _is_marked_for_deletion;
+    }
 
     // methods
     void Draw();
     void Update();
-
 };
 
-
-#endif //PROJECT_GAMEOBJECT_H
+#endif  // PROJECT_GAMEOBJECT_H

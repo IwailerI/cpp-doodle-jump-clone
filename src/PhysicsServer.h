@@ -2,39 +2,38 @@
 // Created by wailer on 05/03/2022.
 //
 
-#ifndef PROJECT_PHYSICSSERVER_H
-#define PROJECT_PHYSICSSERVER_H
+#ifndef PROJECT_PHYSICS_SERVER_H
+#define PROJECT_PHYSICS_SERVER_H
+
+#include <memory>
+#include <vector>
 
 #include "objects/Collider.h"
 
-const int MAX_BODIES = 100;
-
 class PhysicsServer {
-private:
+   private:
     PhysicsServer() = default;
 
-protected:
-    Collider *_player;
-    Collider *_bodies[MAX_BODIES];
+   protected:
+    std::shared_ptr<Collider> _player;
+    std::vector<std::shared_ptr<Collider>> _bodies;
 
-    int _size;
+    void remove(int i);
 
-    void remove(int i, bool clear = true);
-public:
-    // returns current singleton instance or creates a new one
+   public:
+    // get the singleton instance
     static PhysicsServer &Instance() {
         static PhysicsServer instance;
         return instance;
     }
 
-    void RegisterPlayer(Collider *player);
+    void RegisterPlayer(std::shared_ptr<Collider> player);
 
-    int Add(Collider *col);
-
+    int AddCollider(std::shared_ptr<Collider> col);
 
     void Update();
 
-    void Clear(bool soft = true);
+    void Clear();
 };
 
-#endif //PROJECT_PHYSICSSERVER_H
+#endif  // PROJECT_PHYSICS_SERVER_H
