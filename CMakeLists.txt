@@ -3,9 +3,6 @@ project(project)
 
 set(CMAKE_CXX_STANDARD 14)
 
-# include_directories($ENV{ALLEGRO})
-# include_directories(/home/linuxbrew/.linuxbrew/Cellar/allegro/5.2.9.1/include/)
-
 add_executable(project
 
         src/main.cpp
