@@ -19,8 +19,8 @@ img load_img(const char* path) {
 ResourceManager::ResourceManager() {
     if (!al_change_directory(FILEPATH.c_str())) {
         throw str_exception(
-            "Invalid filepath for resource directory. Check ResourceManager.h "
-            "constant FILEPATH.");
+            "Cannot find sprites folder. Are you sure it is in the place were"
+            " the executable is being run from?");
     }
 
     // Player
