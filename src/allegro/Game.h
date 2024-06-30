@@ -5,29 +5,29 @@
 #ifndef PROJECT_GAME_H
 #define PROJECT_GAME_H
 
-#include "AllegroBase.hpp"
-#include "../PhysicsServer.h"
-#include "../ScreenSaver.h"
 #include "../LevelManager.h"
+#include "../PhysicsServer.h"
 #include "../Player.h"
+#include "../ScreenSaver.h"
+#include "AllegroBase.hpp"
 
-enum STATE {TITLE, INGAME, END, PAUSE};
+enum class State { TITLE, IN_GAME, END, PAUSE };
 
-class Game: public AllegroBase {
-private:
+class Game : public AllegroBase {
+   private:
     Game();
     PhysicsServer &_physics_server;
     ScreenSaver &_screen_saver;
     LevelManager &_level_manager;
 
-    STATE _state = TITLE;
+    State _state = State::TITLE;
 
     void _start_game();
     void _update_player_input();
 
-    Player *_player = nullptr;
+    std::shared_ptr<Player> _player = nullptr;
 
-public:
+   public:
     static Game &Instance() {
         static Game instance;
         return instance;
@@ -40,5 +40,4 @@ public:
     void Run() override;
 };
 
-
-#endif //PROJECT_GAME_H
+#endif  // PROJECT_GAME_H

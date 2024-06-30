@@ -6,11 +6,10 @@
 
 Spring::Spring() {
     _sprite = ResourceManager::Instance().sprite_spring;
-    _player_interaction = Boost;
+    _player_interaction = PlayerInteraction::Boost;
 }
 
-void Spring::onCollision(Collider *col) {
+void Spring::onCollision(std::shared_ptr<Collider> col) {
     _sprite = ResourceManager::Instance().sprite_spring_triggered;
-//    _position.y -= 30;
     _position.y -= 60;
 }

@@ -7,12 +7,11 @@
 
 #include "Content.h"
 
-class Spring: public Content {
-public:
+class Spring : public Content {
+   public:
     Spring();
 
-    void onCollision(Collider *col) override;
+    void onCollision(std::shared_ptr<Collider> col) override;
 };
 
-
-#endif //PROJECT_SPRING_H
+#endif  // PROJECT_SPRING_H

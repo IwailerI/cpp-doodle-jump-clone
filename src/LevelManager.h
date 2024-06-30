@@ -2,25 +2,22 @@
 // Created by wailer on 10/03/2022.
 //
 
-#ifndef PROJECT_LEVELMANAGER_H
-#define PROJECT_LEVELMANAGER_H
+#ifndef PROJECT_LEVEL_MANAGER_H
+#define PROJECT_LEVEL_MANAGER_H
 
-#include "objects/platforms/PlatformFactory.h"
-#include "objects/enemies/EnemyFactory.h"
-
-#include "ScreenSaver.h"
 #include "PhysicsServer.h"
-#include <cstdlib>
-
+#include "ScreenSaver.h"
+#include "objects/enemies/EnemyFactory.h"
+#include "objects/platforms/PlatformFactory.h"
 #include "util/utils.h"
 
 class LevelManager {
-private:
-    LevelManager() {Reset();}
+   private:
+    LevelManager() { Reset(); }
     double getMinDistance() const;
 
-protected:
-    GameObject *_player = nullptr;
+   protected:
+    std::shared_ptr<GameObject> _player = nullptr;
 
     double _next_distance = 0.0;
     double _last_platform = 0.0;
@@ -31,18 +28,19 @@ protected:
     void _genNextPlatform();
     void _genNextEnemy();
 
-public:
+   public:
     static LevelManager &Instance() {
         static LevelManager instance;
         return instance;
     }
 
-    void RegisterPlayer(GameObject *player) {_player = player;}
+    void RegisterPlayer(std::shared_ptr<GameObject> player) {
+        _player = player;
+    }
 
     void Update();
 
     void Reset();
 };
 
-
-#endif //PROJECT_LEVELMANAGER_H
+#endif  // PROJECT_LEVEL_MANAGER_H

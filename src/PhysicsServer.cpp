@@ -4,55 +4,35 @@
 
 #include "PhysicsServer.h"
 
-void PhysicsServer::RegisterPlayer(Collider *player) {
+void PhysicsServer::RegisterPlayer(std::shared_ptr<Collider> player) {
     _player = player;
 }
 
 void PhysicsServer::Update() {
     if (_player == nullptr) return;
-    for (int i = 0; i < _size; ++i) {
-        // delete if necessary
-        if (_bodies[i]->getPhysicsDeletionMark() != NOT_MARKED) {
-            remove(i, _bodies[i]->getPhysicsDeletionMark() == CLEAR_MEMORY);
+    for (int i = 0; i < _bodies.size(); ++i) {
+        if (_bodies[i]->isMarkedForDeletion()) {
+            remove(i);
             i--;
-            continue;
-        }
-        if (_player->isColliding(_bodies[i])){
+        } else if (_player->isColliding(_bodies[i])) {
             _player->onCollision(_bodies[i]);
             _bodies[i]->onCollision(_player);
         }
     }
 }
 
-int PhysicsServer::Add(Collider *s) {
-    if (_size >= MAX_BODIES) return -1;
-    _bodies[_size] = s;
-    _bodies[_size]->setPhysicsId(_size);
-    _size++;
-    return _size-1;
+int PhysicsServer::AddCollider(std::shared_ptr<Collider> s) {
+    s->setPhysicsId(_bodies.size());
+    _bodies.push_back(s);
+    return s->getPhysicsId();
 }
 
-void PhysicsServer::remove(int i, bool clear) {
-    if (clear)
-        delete _bodies[i];
-    _bodies[i] = _bodies[--_size];
-    _bodies[_size] = nullptr;
+void PhysicsServer::remove(int i) {
+    _bodies[i] = _bodies.back();
+    _bodies.pop_back();
 }
 
-void PhysicsServer::Clear(bool soft) {
-    if (soft) {
-        for (int i = 0; i < _size; i++) {
-            _bodies[i] = nullptr;
-        }
-    } else {
-        for (int i = 0; i < _size; i++) {
-            if (_bodies[i] != nullptr) {
-                delete _bodies[i];
-                _bodies[i] = nullptr;
-            }
-        }
-        delete _player;
-        _player = nullptr;
-    }
-    _size = 0;
+void PhysicsServer::Clear() {
+    _bodies.clear();
+    _player = nullptr;
 }

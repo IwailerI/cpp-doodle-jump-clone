@@ -5,22 +5,21 @@
 #ifndef PROJECT_PLATFORMFACTORY_H
 #define PROJECT_PLATFORMFACTORY_H
 
-#include "Platform.h"
-#include "FakePlatform.h"
-#include "MovingPlatform.h"
-
+#include "../../util/utils.h"
 #include "../content/Content.h"
 #include "../content/Spring.h"
-
-#include "../../util/utils.h"
+#include "FakePlatform.h"
+#include "MovingPlatform.h"
+#include "Platform.h"
 
 class PlatformFactory {
-private:
-    static Platform *_random_platform(bool fake = false);
-    static Content *_random_content();
-public:
-    static Platform *GetRandomPlatform(double height, bool fake = false);
+   private:
+    static std::shared_ptr<Platform> _random_platform(bool fake = false);
+    static std::shared_ptr<Content> _random_content();
+
+   public:
+    static std::shared_ptr<Platform> GetRandomPlatform(double height,
+                                                       bool fake = false);
 };
 
-
-#endif //PROJECT_PLATFORMFACTORY_H
+#endif  // PROJECT_PLATFORMFACTORY_H

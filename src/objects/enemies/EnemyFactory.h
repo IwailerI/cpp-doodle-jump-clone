@@ -5,15 +5,15 @@
 #ifndef PROJECT_ENEMYFACTORY_H
 #define PROJECT_ENEMYFACTORY_H
 
-#include "Enemy.h"
+#include "../../util/utils.h"
 #include "BigEnemy.h"
+#include "Enemy.h"
 #include "FlyingEnemy.h"
 #include "SmallEnemy.h"
-#include "../../util/utils.h"
 
 class EnemyFactory {
-public:
-    static Enemy *GetRandomEnemy(double height);
+   public:
+    static std::shared_ptr<Enemy> GetRandomEnemy(double height);
 };
 
-#endif //PROJECT_ENEMYFACTORY_H
+#endif  // PROJECT_ENEMYFACTORY_H

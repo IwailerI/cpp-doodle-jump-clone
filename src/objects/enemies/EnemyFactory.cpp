@@ -5,25 +5,26 @@
 #include "EnemyFactory.h"
 
 // generates a new random enemy, positioned on random (on screen) x and y=height
-Enemy *EnemyFactory::GetRandomEnemy(double height) {
-    Enemy *p = nullptr;
+std::shared_ptr<Enemy> EnemyFactory::GetRandomEnemy(double height) {
+    std::shared_ptr<Enemy> p = nullptr;
 
-    switch (std::rand()%4) {
+    switch (std::rand() % 4) {
         case 0:
-            p = new Enemy(Vector2());
+            p = std::make_shared<Enemy>(Vector2());
             break;
         case 1:
-            p = new BigEnemy(Vector2());
+            p = std::make_shared<BigEnemy>(Vector2());
             break;
         case 2:
-            p = new SmallEnemy(Vector2());
+            p = std::make_shared<SmallEnemy>(Vector2());
             break;
         case 3:
-            p = new FlyingEnemy(Vector2());
+            p = std::make_shared<FlyingEnemy>(Vector2());
             break;
     }
 
-    p->setPosition(Vector2(util::randf(0, SCREEN_W - p->GetImageSize().x), height));
+    p->setPosition(
+        Vector2(util::randf(0, SCREEN_W - p->GetImageSize().x), height));
 
     return p;
 }

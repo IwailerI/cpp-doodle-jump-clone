@@ -4,9 +4,9 @@
 
 #include "MovingPlatform.h"
 
-MovingPlatform::MovingPlatform(const Vector2 &position):
-Platform(position, ResourceManager::Instance().sprite_platform_moving, Bounce)
-{
+MovingPlatform::MovingPlatform(const Vector2 &position)
+    : Platform(position, ResourceManager::Instance().sprite_platform_moving,
+               PlayerInteraction::Bounce) {
     _velocity = util::randf(MIN_PLATFORM_SPEED, MAX_PLATFORM_SPEED);
     if (std::rand() % 2 == 0) _velocity = -_velocity;
 
@@ -18,9 +18,8 @@ void MovingPlatform::_update() {
 
     _position.x += _velocity;
 
-    if (_position.x < 0 || _position.x > SCREEN_W-_width) _velocity = -_velocity;
+    if (_position.x < 0 || _position.x > SCREEN_W - _width)
+        _velocity = -_velocity;
 
-    _position.x = util::clamp(_position.x, 0.0, SCREEN_W-_width);
-
+    _position.x = util::clamp(_position.x, 0.0, SCREEN_W - _width);
 }
-

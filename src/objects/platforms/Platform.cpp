@@ -6,41 +6,39 @@
 
 void Platform::_update() {
     // update content
-    if (_content!= nullptr) {
+    if (_content != nullptr) {
         auto is = GetImageSize();
-        _content->UpdatePos(Vector2(_position.x + is.x * .5, _position.y - is.y * .5));
+        _content->UpdatePos(
+            Vector2(_position.x + is.x * .5, _position.y - is.y * .5));
     }
 
     if (GameObject::_position.y >= OBJECT_DELETE_THRESHOLD) {
         if (_content != nullptr) {
-            _content->suicide();
+            _content->destroy();
             _content = nullptr;
         }
-        _suicide();
+        _destroy();
     }
 }
 
-
-
-void Platform::_suicide() {
-    if (_marked_for_object_deletion != 0 || _marked_for_physics_deletion != 0) return;
+void Platform::_destroy() {
+    if (isMarkedForObjectDeletion() || isMarkedForDeletion()) return;
 
     _visible = false;
     if (_physics_id != -1 && _object_id != -1) {
-        markForObjectDeletion(true);
-        markForPhysicsDeletion(false);
+        markForObjectDeletion();
+        markForDeletion();
     } else if (_object_id != -1) {
-        markForObjectDeletion(true);
+        markForObjectDeletion();
     } else if (_physics_id != -1) {
-        markForPhysicsDeletion(true);
+        markForDeletion();
     } else
         delete this;
 }
 
-Platform::Platform(Vector2 position): Sprite()
-{
+Platform::Platform(Vector2 position) : Sprite() {
     _sprite = ResourceManager::Instance().sprite_platform;
-    _player_interaction = Bounce;
+    _player_interaction = PlayerInteraction::Bounce;
     _position = position;
 }
 
@@ -52,18 +50,19 @@ Vector2 Platform::_getDimensions(bool alternative) const {
     return GetImageSize();
 }
 
-void Platform::onCollision(Collider *col) {
+void Platform::onCollision(std::shared_ptr<Collider> col) {
     // do nothing
 }
 
-Platform::Platform(Vector2 position, ALLEGRO_BITMAP *sprite, PlayerInteraction PI): Sprite() {
+Platform::Platform(Vector2 position, ALLEGRO_BITMAP *sprite,
+                   PlayerInteraction PI)
+    : Sprite() {
     _position = position;
     _sprite = sprite;
     _player_interaction = PI;
 }
 
-void Platform::addContent(Content *c) {
-    if (_content != nullptr)
-        _content->suicide();
+void Platform::addContent(std::shared_ptr<Content> c) {
+    if (_content != nullptr) _content->destroy();
     _content = c;
 }
