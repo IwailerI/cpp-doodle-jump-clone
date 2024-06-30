@@ -9,8 +9,8 @@
 #include <allegro5/allegro_ttf.h>
 
 #include <iostream>
-#include "windows.h"
-#include <allegro5/allegro_windows.h>
+// #include "windows.h"
+// #include <allegro5/allegro_windows.h>
 
 #include "../util/constants.h"
 
@@ -32,7 +32,7 @@ public:
     // See help for ALLEGRO_KEYBOARD_STATE
     bool IsPressed( int keycode );
 
-    void FocusGraphicWin();
+    // void FocusGraphicWin();
 
     virtual void Fps() = 0;
     virtual void Draw() = 0;

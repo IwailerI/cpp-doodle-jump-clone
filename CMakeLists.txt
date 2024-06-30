@@ -3,43 +3,44 @@ project(project)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(C:/Program\ Files/JetBrains/CLion\ 2021.3.2/bin/mingw)
+# include_directories($ENV{ALLEGRO})
+# include_directories(/home/linuxbrew/.linuxbrew/Cellar/allegro/5.2.9.1/include/)
 
 add_executable(project
 
-        main.cpp
+        src/main.cpp
 
-        allegro/AllegroBase.hpp allegro/AllegroBase.cpp
-        util/constants.h
-        util/utils.h
+        src/allegro/AllegroBase.hpp src/allegro/AllegroBase.cpp
+        src/util/constants.h
+        src/util/utils.h
 
-        util/Vector2.cpp util/Vector2.h
+        src/util/Vector2.cpp src/util/Vector2.h
 
-        allegro/Game.cpp allegro/Game.h
-        Player.cpp Player.h
+        src/allegro/Game.cpp src/allegro/Game.h
+        src/Player.cpp src/Player.h
 
-        ScreenSaver.cpp ScreenSaver.h
-        LevelManager.cpp LevelManager.h
-        PhysicsServer.cpp PhysicsServer.h
-        ResourceManager.cpp ResourceManager.h
+        src/ScreenSaver.cpp src/ScreenSaver.h
+        src/LevelManager.cpp src/LevelManager.h
+        src/PhysicsServer.cpp src/PhysicsServer.h
+        src/ResourceManager.cpp src/ResourceManager.h
 
-        objects/GameObject.cpp objects/GameObject.h
-        objects/Sprite.cpp objects/Sprite.h
-        objects/Collider.cpp objects/Collider.h
+        src/objects/GameObject.cpp src/objects/GameObject.h
+        src/objects/Sprite.cpp src/objects/Sprite.h
+        src/objects/Collider.cpp src/objects/Collider.h
 
-        objects/platforms/PlatformFactory.h objects/platforms/PlatformFactory.cpp
-        objects/platforms/Platform.cpp objects/platforms/Platform.h
-        objects/platforms/FakePlatform.cpp objects/platforms/FakePlatform.h
-        objects/platforms/MovingPlatform.cpp objects/platforms/MovingPlatform.h
+        src/objects/platforms/PlatformFactory.h src/objects/platforms/PlatformFactory.cpp
+        src/objects/platforms/Platform.cpp src/objects/platforms/Platform.h
+        src/objects/platforms/FakePlatform.cpp src/objects/platforms/FakePlatform.h
+        src/objects/platforms/MovingPlatform.cpp src/objects/platforms/MovingPlatform.h
 
-        objects/enemies/EnemyFactory.h objects/enemies/EnemyFactory.cpp
-        objects/enemies/Enemy.h objects/enemies/Enemy.cpp
-        objects/enemies/BigEnemy.h
-        objects/enemies/SmallEnemy.h
-        objects/enemies/FlyingEnemy.h
+        src/objects/enemies/EnemyFactory.h src/objects/enemies/EnemyFactory.cpp
+        src/objects/enemies/Enemy.h src/objects/enemies/Enemy.cpp
+        src/objects/enemies/BigEnemy.h
+        src/objects/enemies/SmallEnemy.h
+        src/objects/enemies/FlyingEnemy.h
 
-        objects/content/Content.cpp objects/content/Content.h
-        objects/content/Spring.cpp objects/content/Spring.h
+        src/objects/content/Content.cpp src/objects/content/Content.h
+        src/objects/content/Spring.cpp src/objects/content/Spring.h
 
         )
 

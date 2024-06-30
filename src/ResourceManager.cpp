@@ -122,7 +122,6 @@ ResourceManager::ResourceManager() {
         throw str_exception("Unable to find spring_2.png");
     }
 
-
     // Fonts
     font = al_load_ttf_font("font.ttf", 72, 0);
     if (font == nullptr) {
